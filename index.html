@@ -18,13 +18,13 @@
 
 :root {
   /* Brand */
-  --brand-50: #EEF3FF;
-  --brand-100: #DCE6FF;
-  --brand-200: #B9CCFF;
-  --brand-500: #2E5BFF;
-  --brand-600: #1F48E0;   /* Cobalt Azure — primary */
-  --brand-700: #1838B3;
-  --brand-900: #0C1C5C;
+  --brand-50: #EEF4FB;
+  --brand-100: #E8F0FA;
+  --brand-200: #D0E1F4;
+  --brand-500: #2A7FDB;
+  --brand-600: #166ACA;   /* MySankul app blue — primary */
+  --brand-700: #1257A8;
+  --brand-900: #0F4A8F;
 
   /* Institute identity + live states */
   --green-50: #E9F8F0;
@@ -64,7 +64,7 @@
   --shadow-md: 0 6px 20px rgba(15, 23, 42, .08);
   --shadow-lg: 0 18px 48px rgba(15, 23, 42, .12);
 
-  --container: 1240px;
+  --container: 1264px;  /* 1216px content + 24px padding each side */
   --header-h: 72px;
 }
 
@@ -118,7 +118,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .btn:active { transform: translateY(1px); }
 .btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
-.btn-primary { background: var(--brand-600); color: #fff; box-shadow: 0 6px 16px rgba(31, 72, 224, .28); }
+.btn-primary { background: var(--brand-600); color: #fff; box-shadow: 0 6px 16px rgba(22, 106, 202, .25); }
 .btn-primary:hover { background: var(--brand-700); }
 .btn-secondary { background: var(--surface); color: var(--ink-900); border: 1px solid var(--line); }
 .btn-secondary:hover { border-color: var(--brand-200); color: var(--brand-700); }
@@ -589,7 +589,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <span class="logo-mark">S</span><span>My<b>Sankul</b></span>
     </a>
     <nav class="main-nav" id="primary-nav" aria-label="Primary">
-      <a href="#courses">Courses</a>
+      <a href="courses.html">Courses</a>
       <a href="#exams">Exams</a>
       <a href="#institutes">Institutes</a>
       <a href="#live">Live classes</a>
@@ -700,23 +700,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 
     <div class="grid grid-4" data-filter-scope="exams">
       <!-- Competitive -->
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#EEF3FF;color:#1F48E0">GPSC</span><div><strong>GPSC Class 1 & 2</strong><small>640 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF7E6;color:#B45309">GSSSB</span><div><strong>GSSSB CCE</strong><small>410 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF0F0;color:#C92A2D">POL</span><div><strong>Gujarat Police / LRD</strong><small>380 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#F3EEFF;color:#6D3FE0">TLT</span><div><strong>Talati cum Mantri</strong><small>260 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#E6FAF8;color:#0F8B8D">BIN</span><div><strong>Bin Sachivalay</strong><small>190 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#EEF3FF;color:#1838B3">UPSC</span><div><strong>UPSC CSE</strong><small>220 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF7E6;color:#B45309">BANK</span><div><strong>Banking (IBPS / SBI)</strong><small>170 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFEFF5;color:#D9377A">TET</span><div><strong>TET / TAT</strong><small>150 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=gpsc" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#EEF4FB;color:#166ACA">GPSC</span><div><strong>GPSC Class 1 & 2</strong><small>640 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=gsssb" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF7E6;color:#B45309">GSSSB</span><div><strong>GSSSB CCE</strong><small>410 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=police" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF0F0;color:#C92A2D">POL</span><div><strong>Gujarat Police / LRD</strong><small>380 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=talati" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#F3EEFF;color:#6D3FE0">TLT</span><div><strong>Talati cum Mantri</strong><small>260 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=binsach" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#E6FAF8;color:#0F8B8D">BIN</span><div><strong>Bin Sachivalay</strong><small>190 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=upsc" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#EEF4FB;color:#1257A8">UPSC</span><div><strong>UPSC CSE</strong><small>220 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=bank" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFF7E6;color:#B45309">BANK</span><div><strong>Banking (IBPS / SBI)</strong><small>170 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=tet" class="exam-tile" data-cat="comp"><span class="ex-ic" style="background:#FFEFF5;color:#D9377A">TET</span><div><strong>TET / TAT</strong><small>150 courses</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
       <!-- School -->
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">6</span><div><strong>Class 6</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">7</span><div><strong>Class 7</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">8</span><div><strong>Class 8</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">9</span><div><strong>Class 9</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF3FF;color:#1F48E0">10</span><div><strong>Class 10 · Board</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF3FF;color:#1F48E0">11</span><div><strong>Class 11</strong><small>Science · Commerce</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF3FF;color:#1F48E0">12</span><div><strong>Class 12 · Board</strong><small>Science · Commerce</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
-      <a href="#" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#E6FAF8;color:#0F8B8D">NEET</span><div><strong>NEET / JEE / GUJCET</strong><small>Foundation & crash</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">6</span><div><strong>Class 6</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">7</span><div><strong>Class 7</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">8</span><div><strong>Class 8</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#FFF7E6;color:#B45309">9</span><div><strong>Class 9</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF4FB;color:#166ACA">10</span><div><strong>Class 10 · Board</strong><small>GSEB · CBSE</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF4FB;color:#166ACA">11</span><div><strong>Class 11</strong><small>Science · Commerce</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#EEF4FB;color:#166ACA">12</span><div><strong>Class 12 · Board</strong><small>Science · Commerce</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
+      <a href="courses.html?exam=school" class="exam-tile" data-cat="school" hidden><span class="ex-ic" style="background:#E6FAF8;color:#0F8B8D">NEET</span><div><strong>NEET / JEE / GUJCET</strong><small>Foundation & crash</small></div><svg class="icon icon-sm"><use href="#i-chevron-right"/></svg></a>
     </div>
   </div>
 </section>
@@ -729,7 +729,7 @@ ul { margin: 0; padding: 0; list-style: none; }
         <span class="eyebrow">Popular right now</span>
         <h2 class="h2" style="margin-top:8px">Courses learners are joining</h2>
       </div>
-      <a href="#" class="link">See all courses <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
+      <a href="courses.html" class="link">See all courses <svg class="icon icon-sm"><use href="#i-arrow-right"/></svg></a>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px" data-chip-group="courses" role="group" aria-label="Filter courses">
       <button class="chip" aria-pressed="true" data-value="all">All</button>
