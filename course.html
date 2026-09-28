@@ -640,6 +640,8 @@ ul { list-style: none; margin: 0; padding: 0; }
     .tabs-wrap { padding-top: 8px; margin: 0 -16px 20px; padding-left: 16px; padding-right: 16px; }
     .proto span { display: none; }
   }
+  .proto-lay { height: 30px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: #166ACA; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .proto-lay:hover { background: #1257A8; }
 </style>
 </head>
 <body class="role-visitor" data-nav="courses" data-unav="learn">
@@ -654,7 +656,7 @@ ul { list-style: none; margin: 0; padding: 0; }
       <a href="index.html#exams" data-nav="exams">Exams</a>
       <a href="index.html#institutes" data-nav="institutes">Institutes</a>
       <a href="index.html#live" data-nav="live">Live classes</a>
-      <a href="index.html#tests" data-nav="tests">Test series</a>
+      <a href="test-series.html" data-nav="tests">Test series</a>
     </nav>
     <div class="header-actions">
       <label class="sr-only" for="lg-lang">Language</label>
@@ -673,7 +675,7 @@ ul { list-style: none; margin: 0; padding: 0; }
       <a href="home.html" data-unav="home">Home</a>
       <a href="home.html#live" data-unav="live">Live Classes</a>
       <a href="home.html#learn" data-unav="learn">Learn</a>
-      <a href="home.html#tests" data-unav="tests">Tests</a>
+      <a href="test-series.html?as=member#my" data-unav="tests">Tests</a>
     </nav>
     <form class="header-search" role="search" onsubmit="event.preventDefault()">
       <label for="lg-q" class="sr-only">Search</label>
@@ -971,6 +973,7 @@ ul { list-style: none; margin: 0; padding: 0; }
     <option value="student-15">Enrolled · 15 days left</option>
     <option value="student-7">Enrolled · 7 days left</option>
   </select>
+  <a class="proto-lay" href="course-v1.html">Layout V1 →</a>
 </label>
 
 <script>
@@ -1385,5 +1388,6 @@ ul { list-style: none; margin: 0; padding: 0; }
   if (params.get('enroll') && role === 'member') setTimeout(() => openPlan('enroll'), 300);
 })();
 </script>
+<script>document.querySelectorAll('.proto-lay').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const as=new URLSearchParams(location.search).get('as');location.href=a.getAttribute('href')+(as&&as!=='visitor'?'?as='+as.replace(/-\d+$/,''):'');}));</script>
 </body>
 </html>

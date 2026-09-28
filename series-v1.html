@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Explore courses · MySankul</title>
-<meta name="description" content="Compare GPSC, GSSSB, Gujarat Police, Talati, UPSC and Class 6–12 courses from verified Gujarat institutes.">
+<title>GPSC Prelims 2027: 32 Full Mocks · MySankul</title>
+<meta name="description" content="32 full-length GPSC Prelims mock tests with All-Gujarat rank, detailed solutions and analysis by Sankalp Academy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -435,103 +435,346 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 <style>
   body.role-visitor [data-role]:not([data-role~="visitor"]),
-  body.role-member  [data-role]:not([data-role~="member"]) { display: none !important; }
+  body.role-member  [data-role]:not([data-role~="member"]),
+  body.role-student [data-role]:not([data-role~="student"]) { display: none !important; }
 
-  /* ---------- Page head ---------- */
-  .x-head { background: #fff; border-bottom: 1px solid var(--slate-200); }
-  .x-head .container { padding-top: 24px; padding-bottom: 20px; }
-  .crumbs { display: flex; gap: 6px; align-items: center; font-size: 13px; color: var(--slate-500); margin-bottom: 12px; }
-  .crumbs a:hover { color: var(--blue-600); }
-  .x-head h1 { font-size: 28px; font-weight: 700; letter-spacing: -.01em; }
-  .x-head p { font-size: 15px; color: var(--slate-600); margin-top: 4px; }
-  .exam-pills { display: flex; flex-wrap: nowrap; gap: 8px; margin-top: 20px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
-  .exam-pills::-webkit-scrollbar { display: none; }
-  .exam-pills .pill { flex: none; }
+  /* ---------- Hero: dark band + overlapping stat strip + floating buy card ---------- */
+  .c-wrap { overflow-x: clip; }
+  .c-grid { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) 360px; column-gap: 48px; padding-bottom: 120px; }
+  .c-hero-txt { grid-column: 1; grid-row: 1; position: relative; padding-top: 28px; color: #fff; }
+  .c-hero-txt::before { content: ""; position: absolute; top: 0; bottom: 0; left: -100vw; right: -100vw; z-index: -1; background: radial-gradient(700px 360px at 18% 0%, rgba(22,106,202,.45), transparent 65%), radial-gradient(600px 300px at 90% 100%, rgba(22,106,202,.18), transparent 70%), #0B1627; }
+  .crumbs { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; font-size: 13px; color: #94A3B8; margin-bottom: 20px; }
+  .crumbs a { color: #9CC7F5; font-weight: 600; }
+  .crumbs a:hover { color: #fff; }
+  .crumbs [aria-current] { color: #CBD5E1; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .c-hero-txt .chip-s.s-blue { background: rgba(156,199,245,.14); color: #CFE3FA; }
+  .c-hero-txt .chip-s.s-purple { background: var(--purple-600); color: #fff; }
+  h1.title { font-size: 36px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; color: #fff; max-width: 760px; }
+  .lead { font-size: 17px; line-height: 1.55; color: #CBD5E1; margin-top: 12px; max-width: 680px; }
+  .c-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 20px; font-size: 14px; color: #CBD5E1; }
+  .c-facts span { display: inline-flex; align-items: center; gap: 8px; }
+  .c-facts .icon { width: 16px; height: 16px; color: #7FA6D1; }
+  .hero-m { display: none; }
 
-  /* ---------- Layout ---------- */
-  .x-body { display: grid; grid-template-columns: 296px minmax(0, 1fr); gap: 32px; align-items: start; padding-top: 28px; padding-bottom: 96px; }
+  /* Stat strip straddles the band's bottom edge */
+  .c-strip { position: relative; display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(3, minmax(0, 1fr)); align-items: stretch; margin-top: 32px; margin-bottom: -52px; background: #fff; color: var(--slate-900); border: 1px solid var(--slate-200); border-radius: var(--r-16); box-shadow: 0 16px 40px rgba(15, 23, 42, .14); overflow: hidden; }
+  .cs-inst { display: flex; align-items: center; gap: 12px; padding: 18px 20px; min-width: 0; }
+  .cs-inst .grow { flex: 1; min-width: 0; }
+  .cs-inst .n { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 700; white-space: nowrap; }
+  .cs-inst .n:hover { color: var(--blue-600); }
+  .cs-inst .s { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--slate-500); margin-top: 2px; }
+  .follow-link { font-size: 13px; gap: 2px; }
+  .follow-link[aria-pressed="true"] { color: var(--green-700); }
+  .cs-stat { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 14px 12px; border-left: 1px solid var(--slate-100); text-align: center; }
+  .cs-stat > .icon { width: 18px; height: 18px; color: var(--blue-600); margin-bottom: 2px; }
+  .cs-stat b { font-size: 22px; font-weight: 700; line-height: 1.2; }
+  .cs-stat small { font-size: 13px; color: var(--slate-500); }
+  .stars { display: flex; gap: 1px; }
+  .stars .icon { width: 13px; height: 13px; color: var(--amber-500); fill: var(--amber-500); stroke: none; }
+  .follow-sm[aria-pressed="true"] { background: var(--blue-600); color: #fff; border-color: var(--blue-600); }
 
-  /* ---------- Filters ---------- */
-  .filters { padding: 24px; }
-  .f-top { display: none; }
-  .fgrp + .fgrp { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--slate-100); }
-  .fgrp h2 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
-  .opt { display: flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 14px; color: var(--slate-800); cursor: pointer; }
-  .opt input { appearance: none; -webkit-appearance: none; flex: none; width: 20px; height: 20px; margin: 0; border: 1.5px solid var(--slate-400); background: #fff; cursor: pointer; transition: border-color .15s, background .15s; }
-  .opt input[type="radio"] { border-radius: 50%; }
-  .opt input[type="checkbox"] { border-radius: 6px; }
-  .opt input:checked { border-color: var(--blue-600); }
-  .opt input[type="radio"]:checked { box-shadow: inset 0 0 0 4px #fff; background: var(--blue-600); }
-  .opt input[type="checkbox"]:checked { background: var(--blue-600) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 14px no-repeat; }
-  .opt input:focus-visible { outline: 3px solid var(--blue-200); outline-offset: 2px; }
-  .opt:hover input:not(:checked) { border-color: var(--blue-600); }
-  .opt .lbl { flex: 1; }
-  .opt .n { font-size: 13px; color: var(--slate-400); }
-  .opt .star { width: 14px; height: 14px; fill: var(--amber-500); stroke: none; display: inline; vertical-align: -2px; margin-right: 2px; }
-  .f-more { font-size: 13px; margin-top: 4px; }
-  .search-f { position: relative; }
-  .search-f .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--slate-400); width: 18px; height: 18px; }
-  .search-f input { width: 100%; height: 44px; padding: 0 14px 0 42px; border: 1px solid var(--slate-200); border-radius: var(--r-12); background: var(--bg); font-size: 14px; }
-  .search-f input:focus { outline: none; border-color: var(--blue-600); background: #fff; box-shadow: 0 0 0 4px var(--blue-50); }
 
-  /* ---------- Results toolbar ---------- */
-  .bar-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-  .count { font-size: 15px; color: var(--slate-600); }
-  .count b { color: var(--slate-900); }
-  .bar-top .sp { flex: 1; }
-  .sort { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--slate-600); }
-  .sort select { height: 40px; padding: 0 36px 0 14px; border: 1px solid var(--slate-200); border-radius: var(--pill); background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 12px center / 16px no-repeat; appearance: none; -webkit-appearance: none; font-size: 14px; font-weight: 600; color: var(--slate-900); cursor: pointer; }
-  .f-open { display: none; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .chips:empty { display: none; }
-  .fchip { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px 0 12px; border-radius: var(--pill); background: var(--blue-50); color: var(--blue-700); font-size: 13px; font-weight: 600; border: 1px solid var(--blue-100); }
-  .fchip .icon { width: 14px; height: 14px; }
-  .fchip:hover { background: var(--blue-100); }
-  .clear-all { font-size: 13px; }
+  .c-main { grid-column: 1; grid-row: 2; padding-top: 76px; min-width: 0; display: grid; gap: 16px; align-content: start; }
+  .side { grid-column: 2; grid-row: 1 / span 2; align-self: start; position: sticky; top: calc(var(--header-h) + 16px); z-index: 2; margin-top: 28px; display: grid; gap: 14px; }
 
-  /* ---------- Grid ---------- */
-  .xgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-  .xgrid .ccard-img { aspect-ratio: 16 / 9.5; }
-  .more-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 32px; font-size: 13px; color: var(--slate-500); }
-  .more-wrap .bar { width: 200px; }
-  .empty-x { text-align: center; padding: 56px 24px; }
-  .empty-x .ic-tile { width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 14px; }
-  .empty-x h3 { font-size: 18px; font-weight: 700; }
-  .empty-x p { font-size: 14px; color: var(--slate-600); margin: 6px auto 18px; max-width: 360px; }
+  /* Buy card */
+  .buy { overflow: hidden; box-shadow: 0 16px 40px rgba(15, 23, 42, .16); }
+  .buy-cover { position: relative; aspect-ratio: 16 / 8; display: grid; place-items: center; color: rgba(255,255,255,.7); }
+  .buy-cover .icon { width: 48px; height: 48px; }
+  .buy-cover .chip-s { position: absolute; left: 14px; top: 14px; background: #fff; }
+  .buy-in { padding: 20px; display: grid; gap: 14px; }
+  .buy-in .p { display: flex; align-items: baseline; gap: 8px; }
+  .buy-in .p b { font-size: 30px; font-weight: 700; }
+  .buy-in ul { display: grid; gap: 8px; }
+  .buy-in li { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--slate-600); }
+  .buy-in li .icon { width: 16px; height: 16px; color: var(--slate-400); }
+  .owned-h { display: flex; gap: 12px; align-items: center; }
+  .owned-h .ic-tile { background: var(--green-100); color: var(--green-700); width: 44px; height: 44px; border-radius: 12px; }
+  .owned-h b { display: block; font-size: 16px; }
+  .owned-h small { font-size: 13px; color: var(--slate-500); }
+  .prog-l { display: flex; justify-content: space-between; font-size: 13px; color: var(--slate-600); margin-bottom: 6px; }
 
-  /* ---------- Filter sheet backdrop (mobile) ---------- */
-  .f-bg { display: none; }
+  /* Section cards */
+  .sc { padding: 24px; }
+  .sc > h2 { font-size: 18px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .sc > h2 small { font-size: 13px; font-weight: 500; color: var(--slate-500); }
+  .gets { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+  .gets li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--slate-800); }
+  .gets .icon { color: var(--green-600); width: 20px; height: 20px; flex: none; margin-top: 1px; }
+
+  /* Test list (preview) */
+  .grp { border: 1px solid var(--slate-200); border-radius: var(--r-12); overflow: hidden; }
+  .grp + .grp { margin-top: 10px; }
+  .grp > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+  .grp > summary::-webkit-details-marker { display: none; }
+  .grp .num { width: 28px; height: 28px; border-radius: 8px; background: var(--blue-50); color: var(--blue-600); display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
+  .grp .grow { flex: 1; min-width: 0; }
+  .grp .t { font-size: 15px; font-weight: 700; }
+  .grp .m { font-size: 13px; color: var(--slate-500); }
+  .grp .chev { color: var(--slate-400); transition: transform .2s; }
+  .grp[open] .chev { transform: rotate(180deg); }
+  .grp[open] > summary { border-bottom: 1px solid var(--slate-100); }
+  .trow { display: flex; align-items: center; gap: 12px; padding: 12px 16px; font-size: 14px; }
+  .trow + .trow { border-top: 1px dashed var(--slate-100); }
+  .trow .grow { flex: 1; min-width: 0; }
+  .trow .t { font-size: 14px; font-weight: 600; }
+  .trow .m { font-size: 12px; color: var(--slate-500); }
+  .trow .lk { color: var(--slate-400); }
+
+  .kv div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; font-size: 14px; border-top: 1px solid var(--slate-100); }
+  .kv div:first-child { border-top: 0; }
+  .kv span { color: var(--slate-500); }
+  .kv b { font-weight: 600; text-align: right; }
+
+  /* Student: performance + list */
+  .perf { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: hidden; }
+  .perf div { padding: 18px 20px; }
+  .perf div + div { border-left: 1px solid var(--slate-100); }
+  .perf b { display: block; font-size: 24px; font-weight: 700; }
+  .perf b small { font-size: 14px; color: var(--slate-400); font-weight: 600; }
+  .perf span { font-size: 13px; color: var(--slate-500); }
+  .perf .g { color: var(--green-700); }
+  .st-tabs { margin-bottom: 14px; }
+  .st-tabs .seg-tab { height: 40px; font-size: 14px; }
+  .mt { display: flex; align-items: center; gap: 14px; padding: 14px 16px; }
+  .mt + .mt { border-top: 1px solid var(--slate-100); }
+  .mt .ic-tile { width: 40px; height: 40px; }
+  .mt.done .ic-tile { background: var(--green-100); color: var(--green-700); }
+  .mt.prog .ic-tile { background: var(--amber-100); color: var(--amber-800); }
+  .mt .grow { flex: 1; min-width: 0; }
+  .mt .t { font-size: 15px; font-weight: 600; }
+  .mt .m { font-size: 13px; color: var(--slate-500); margin-top: 2px; }
+  .mt .m b { color: var(--slate-900); }
+  .mt .acts { display: flex; gap: 8px; flex: none; }
+
+  /* Mobile bar */
+  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; align-items: center; gap: 10px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--slate-200); box-shadow: 0 -6px 20px rgba(15,23,42,.06); }
+  .mbar .grow { flex: 1; min-width: 0; font-size: 12px; color: var(--slate-500); }
+  .mbar .grow b { display: block; font-size: 18px; color: var(--slate-900); }
 
   .proto { position: fixed; left: 16px; bottom: 16px; z-index: 110; display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: var(--pill); background: var(--slate-900); color: #fff; font-size: 12px; font-weight: 600; box-shadow: var(--shadow-float); }
   .proto select { height: 30px; border-radius: var(--pill); border: 0; padding: 0 10px; font-size: 12px; font-weight: 600; background: #fff; color: var(--slate-900); }
 
-  @media (max-width: 1180px) { .xgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 960px) {
-    .x-body { grid-template-columns: minmax(0, 1fr); padding-top: 20px; }
-    .f-open { display: inline-flex; }
-    .filters { position: fixed; top: auto; left: 0; right: 0; bottom: 0; z-index: 120; max-height: 86vh; overflow-y: auto; scrollbar-width: none; border-radius: 20px 20px 0 0; padding: 0 20px 96px; transform: translateY(105%); transition: transform .25s ease; box-shadow: 0 -12px 40px rgba(15,23,42,.18); }
-    .filters.open { transform: none; }
-    .f-top { display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1; background: #fff; padding: 16px 0 12px; margin-bottom: 8px; border-bottom: 1px solid var(--slate-100); }
-    .f-top h2 { font-size: 18px; font-weight: 700; }
-    .f-apply { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 10px; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--slate-100); }
-    .f-apply .btn { flex: 1; }
-    .f-bg { display: block; position: fixed; inset: 0; z-index: 119; background: rgba(15,23,42,.45); opacity: 0; pointer-events: none; transition: opacity .2s; }
-    .f-bg.open { opacity: 1; pointer-events: auto; }
+
+  /* ================= OWNER VIEW (purchased) ================= */
+  .own-band { background: radial-gradient(700px 320px at 15% 0%, rgba(22,106,202,.45), transparent 65%), radial-gradient(500px 260px at 95% 100%, rgba(22,106,202,.2), transparent 70%), #0B1627; color: #fff; padding-bottom: 88px; }
+  .own-band .container { padding-top: 28px; }
+  .own-top { display: flex; align-items: center; gap: 32px; }
+  .own-top .grow { flex: 1; min-width: 0; }
+  .own-kick { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: #CBD5E1; }
+  .own-kick .chip-s { background: var(--purple-600); color: #fff; }
+  .own-kick a { color: #9CC7F5; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+  .own-kick .tick { width: 16px; height: 16px; }
+  .own-top h1 { font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.02em; margin-top: 12px; }
+  .own-valid { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 12px; font-size: 14px; color: #CBD5E1; }
+  .own-valid span { display: inline-flex; align-items: center; gap: 6px; }
+  .own-valid .icon { width: 16px; height: 16px; color: #7FA6D1; }
+  .own-kpis { display: flex; align-items: center; gap: 28px; flex: none; }
+  .ring2 { --p: 47; width: 112px; height: 112px; border-radius: 50%; background: conic-gradient(#4ADE80 calc(var(--p) * 1%), rgba(255,255,255,.12) 0); display: grid; place-items: center; flex: none; }
+  .ring2 > div { width: 92px; height: 92px; border-radius: 50%; background: #0F1F36; display: grid; place-items: center; text-align: center; }
+  .ring2 b { display: block; font-size: 24px; font-weight: 800; line-height: 1; }
+  .ring2 span { font-size: 12px; color: #94A3B8; }
+  .kpi { min-width: 84px; }
+  .kpi b { display: block; font-size: 24px; font-weight: 700; line-height: 1.2; }
+  .kpi b small { font-size: 14px; color: #7F93AE; font-weight: 600; }
+  .kpi span { font-size: 13px; color: #94A3B8; }
+  .kpi .up { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-weight: 700; color: #4ADE80; margin-left: 4px; }
+  .kpi-sep { width: 1px; align-self: stretch; background: rgba(255,255,255,.12); }
+
+  /* Next up (straddles the band) */
+  .next { position: relative; margin-top: -64px; display: flex; align-items: center; gap: 20px; padding: 22px 24px; border-radius: var(--r-20); background: #fff; box-shadow: 0 16px 40px rgba(15,23,42,.14); border: 1px solid var(--slate-200); }
+  .next .big-ic { width: 56px; height: 56px; border-radius: 16px; background: var(--amber-100); color: var(--amber-800); display: grid; place-items: center; flex: none; }
+  .next .big-ic .icon { width: 26px; height: 26px; }
+  .next .grow { flex: 1; min-width: 0; }
+  .next small { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--amber-800); }
+  .next h2 { font-size: 20px; font-weight: 700; margin-top: 2px; }
+  .next .m { font-size: 14px; color: var(--slate-600); margin-top: 2px; }
+  .next .qbar { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 12px; color: var(--slate-500); max-width: 420px; }
+  .next .qbar .bar { flex: 1; }
+  .next .qbar .bar > span { background: var(--amber-500); }
+  .next .acts { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex: none; }
+  .next .acts .link { font-size: 13px; }
+
+  .own-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; padding-top: 24px; padding-bottom: 96px; }
+  .own-main { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; min-width: 0; }
+  .own-side { position: sticky; top: calc(var(--header-h) + 20px); display: grid; gap: 16px; }
+  .blk { padding: 24px; }
+  .blk-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+  .blk-h h2 { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+  .blk-h p { font-size: 13px; color: var(--slate-500); margin-top: 2px; }
+  .seg2 { display: inline-flex; padding: 3px; border-radius: var(--pill); background: var(--slate-100); }
+  .seg2 button { height: 32px; padding: 0 14px; border-radius: var(--pill); font-size: 13px; font-weight: 700; color: var(--slate-500); }
+  .seg2 button[aria-pressed="true"] { background: #fff; color: var(--blue-600); box-shadow: var(--shadow-card); }
+
+  /* Chart */
+  .perf-g { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; }
+  .chart { position: relative; }
+  .chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .chart .gl { stroke: var(--slate-100); stroke-width: 1; }
+  .chart .ln { fill: none; stroke: var(--blue-600); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  .chart .ar { fill: url(#cg); }
+  .chart .pt { fill: #fff; stroke: var(--blue-600); stroke-width: 2.5; }
+  .chart .pt.best { fill: var(--green-600); stroke: var(--green-600); }
+  .chart .vl { font-size: 11px; font-weight: 700; fill: var(--slate-800); text-anchor: middle; font-family: var(--font); }
+  .chart .xl, .chart .yl { font-size: 11px; fill: var(--slate-400); font-family: var(--font); }
+  .chart .xl { text-anchor: middle; }
+  .chart .yl { text-anchor: end; }
+  .delta { display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 10px; border-radius: var(--pill); background: var(--green-100); color: var(--green-700); font-size: 12px; font-weight: 700; }
+
+  .subj h3 { font-size: 13px; font-weight: 700; color: var(--slate-500); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+  .sb { display: grid; grid-template-columns: 96px 1fr 40px; gap: 10px; align-items: center; font-size: 13px; padding: 6px 0; }
+  .sb .n { font-weight: 600; color: var(--slate-800); }
+  .sb .t { height: 8px; border-radius: 99px; background: var(--slate-100); overflow: hidden; }
+  .sb .t span { display: block; height: 100%; border-radius: inherit; }
+  .sb b { text-align: right; font-size: 13px; }
+  .g-good { background: var(--green-600); } .g-mid { background: var(--amber-500); } .g-bad { background: var(--red-600); }
+  .c-good { color: var(--green-700); } .c-mid { color: var(--amber-800); } .c-bad { color: var(--red-600); }
+  .focus { display: flex; gap: 12px; align-items: center; margin-top: 16px; padding: 14px 16px; border-radius: var(--r-12); background: var(--red-50); border: 1px solid var(--red-100); }
+  .focus .ic-tile { background: #fff; color: var(--red-600); }
+  .focus .grow { flex: 1; min-width: 0; font-size: 13px; color: var(--slate-600); }
+  .focus .grow b { display: block; font-size: 14px; color: var(--slate-900); }
+
+  /* Full mocks: journey grid */
+  .mocks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .mk { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 124px; padding: 14px; border-radius: var(--r-16); border: 1.5px solid var(--slate-200); background: #fff; text-align: left; transition: border-color .15s, box-shadow .15s, transform .15s; }
+  a.mk:hover { border-color: var(--blue-200); box-shadow: 0 6px 18px rgba(15,23,42,.08); transform: translateY(-1px); }
+  .mk .no { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--slate-500); }
+  .mk .mv { font-size: 26px; font-weight: 800; line-height: 1.1; letter-spacing: -.01em; }
+  .mk .mv small { font-size: 13px; font-weight: 600; color: var(--slate-400); }
+  .mk .sub { font-size: 12px; color: var(--slate-500); margin-top: auto; }
+  .mk .strip { position: absolute; left: 14px; right: 14px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; }
+  .mk.done .no .icon { width: 16px; height: 16px; color: var(--green-600); }
+  .mk.prog { border-color: var(--amber-400); background: var(--amber-50); }
+  .mk.prog .mv { font-size: 17px; color: var(--amber-800); }
+  .mk.nextup { border-color: var(--blue-600); background: var(--blue-50); box-shadow: 0 0 0 3px var(--blue-100); }
+  .mk.nextup .mv { font-size: 17px; color: var(--blue-700); }
+  .mk.soon { border-style: dashed; background: var(--bg); }
+  .mk.soon .mv { font-size: 15px; color: var(--slate-500); font-weight: 700; }
+  .mk .tag { font-size: 10px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; }
+  .mk.prog .tag { background: var(--amber-100); color: var(--amber-800); }
+  .mk.nextup .tag { background: var(--blue-600); color: #fff; }
+  .legend2 { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--slate-500); }
+  .legend2 span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend2 i { width: 10px; height: 10px; border-radius: 3px; }
+
+  /* Subject tests */
+  .subjects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .sj { border: 1px solid var(--slate-200); border-radius: var(--r-16); overflow: hidden; background: #fff; }
+  .sj-h { display: flex; align-items: center; gap: 12px; padding: 14px 16px 12px; }
+  .sj-h .ic-tile { width: 38px; height: 38px; }
+  .sj-h .grow { flex: 1; min-width: 0; }
+  .sj-h b { display: block; font-size: 15px; }
+  .sj-h small { font-size: 12px; color: var(--slate-500); }
+  .sj-h .bar { width: 64px; }
+  .sj.complete .sj-h .ic-tile { background: var(--green-100); color: var(--green-700); }
+  .sj-r { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--slate-100); font-size: 14px; }
+  .sj-r .grow { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sj-r .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--slate-200); }
+  .sj-r .pill-s { font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 8px; }
+  .sj-r .pill-s.c-good { background: var(--green-100); } .sj-r .pill-s.c-mid { background: var(--amber-100); } .sj-r .pill-s.c-bad { background: var(--red-100); }
+  .sj-r .go { font-size: 13px; font-weight: 700; color: var(--blue-600); }
+  .sj-r .go.primary { color: #fff; background: var(--blue-600); padding: 4px 12px; border-radius: 99px; }
+
+  /* Side */
+  .live { padding: 20px; }
+  .live-h { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--red-600); display: flex; align-items: center; gap: 6px; }
+  .live-h::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red-600); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .live-b { display: flex; gap: 14px; align-items: center; margin: 12px 0 14px; }
+  .cal { width: 56px; flex: none; border-radius: 12px; overflow: hidden; text-align: center; border: 1px solid var(--slate-200); }
+  .cal small { display: block; background: var(--red-600); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .06em; padding: 3px 0; }
+  .cal b { display: block; font-size: 22px; padding: 4px 0 2px; }
+  .live-b .t { font-size: 15px; font-weight: 700; }
+  .live-b .m { font-size: 13px; color: var(--slate-500); }
+  .remind[aria-pressed="true"] { background: var(--green-100); color: var(--green-700); border-color: var(--green-100); }
+  .mini-lb { padding: 20px; }
+  .mini-lb .hd { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .mini-lb .hd b { font-size: 15px; }
+  .mini-lb .hd small { font-size: 12px; color: var(--slate-500); }
+  .lbr { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 14px; }
+  .lbr .rk { width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; font-size: 12px; font-weight: 800; background: var(--slate-100); color: var(--slate-600); flex: none; }
+  .lbr.r1 .rk { background: var(--amber-100); color: var(--amber-800); }
+  .lbr .grow { flex: 1; min-width: 0; font-weight: 600; }
+  .lbr .s { font-weight: 700; }
+  .lbr.me { margin-top: 6px; padding: 10px; border-radius: 12px; background: var(--blue-50); }
+  .lbr.me .rk { width: auto; padding: 0 8px; background: var(--blue-600); color: #fff; }
+  .lb-gap { text-align: center; color: var(--slate-300, #CBD5E1); font-size: 14px; line-height: 1; letter-spacing: 3px; }
+  .val { padding: 18px 20px; display: flex; gap: 12px; align-items: center; }
+  .val .grow { flex: 1; font-size: 13px; color: var(--slate-500); }
+  .val .grow b { display: block; font-size: 15px; color: var(--slate-900); }
+
+  @media (max-width: 1080px) {
+    .own-body { grid-template-columns: minmax(0, 1fr); }
+    .own-side { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .own-side .val { grid-column: 1 / -1; }
+    .perf-g { grid-template-columns: minmax(0, 1fr); }
   }
-  @media (min-width: 961px) { .f-apply { display: none; } }
-  @media (max-width: 640px) {
-    .x-head h1 { font-size: 22px; }
-    .xgrid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-    .sort span { display: none; }
-    .count { order: 3; width: 100%; font-size: 14px; }
-    .exam-pills { margin: 16px -16px 0; padding: 0 16px 2px; }
-    .x-head p { font-size: 14px; }
+  @media (max-width: 860px) {
+    .own-top { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .own-kpis { width: 100%; gap: 18px; flex-wrap: wrap; }
+    .mocks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .subjects { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .own-top h1 { font-size: 24px; }
+    .ring2 { width: 88px; height: 88px; } .ring2 > div { width: 72px; height: 72px; } .ring2 b { font-size: 19px; }
+    .kpi { min-width: 0; } .kpi b { font-size: 19px; } .kpi-sep { display: none; }
+    .own-kpis { display: grid; grid-template-columns: auto 1fr 1fr; gap: 12px 16px; align-items: center; }
+    .own-kpis .ring2 { grid-row: span 2; }
+    .next { flex-wrap: wrap; padding: 18px 16px; gap: 14px; }
+    .next .big-ic { width: 44px; height: 44px; }
+    .next .acts { width: 100%; align-items: stretch; }
+    .next h2 { font-size: 18px; }
+    .blk { padding: 20px 16px; }
+    .mocks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .own-side { grid-template-columns: minmax(0, 1fr); }
+    .sb { grid-template-columns: 84px 1fr 36px; }
+    .focus { flex-wrap: wrap; }
+    .focus .grow { flex-basis: calc(100% - 56px); }
+    .focus .btn { width: 100%; }
+    .mk { min-height: 104px; }
+    .mk.soon { min-height: 0; }
+    .mk.soon .sub { display: none; }
+    .chart .vl { font-size: 14px; }
+    .chart .xl, .chart .yl { font-size: 13px; }
+  }
+
+  @media (max-width: 1080px) {
+    .c-grid { grid-template-columns: minmax(0, 1fr); }
+    .side { display: none; }
+    .mbar { display: flex; }
+    body { padding-bottom: 76px; }
+    .proto { bottom: 92px; }
+  }
+  @media (max-width: 760px) {
+    .c-hero-txt { padding-top: 20px; }
+    .crumbs { display: none; }
+    h1.title { font-size: 26px; }
+    .lead { font-size: 15px; }
+    .c-facts { gap: 8px 16px; font-size: 13px; }
+    .c-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
+    .cs-inst { grid-column: 1 / -1; border-bottom: 1px solid var(--slate-100); padding: 14px 16px; }
+    .cs-stat:nth-child(2) { border-left: 0; }
+    .cs-stat b { font-size: 18px; }
+    .cs-stat small { font-size: 12px; }
+    .c-main { padding-top: 72px; }
+    .sc { padding: 20px 16px; }
+    .gets { grid-template-columns: 1fr; }
+    .perf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .perf div:nth-child(3) { border-left: 0; }
+    .perf div:nth-child(n+3) { border-top: 1px solid var(--slate-100); }
+    .mt { flex-wrap: wrap; }
+    .mt .acts { width: 100%; }
+    .mt .acts .btn { flex: 1; }
     .proto span { display: none; }
   }
+  .proto-lay { height: 30px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: #166ACA; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .proto-lay:hover { background: #1257A8; }
 </style>
 </head>
-<body class="role-visitor" data-nav="courses" data-unav="learn">
-<a class="skip-link" href="#results">Skip to results</a>
+<body class="role-visitor" data-nav="tests" data-unav="tests">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="lg site-header" data-role="visitor">
   <div class="container">
@@ -591,96 +834,219 @@ ul { list-style: none; margin: 0; padding: 0; }
   })();
 </script>
 
-<section class="x-head">
-  <div class="container">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-home>Home</a><svg class="icon icon-14"><use href="#i-chev"/></svg><span aria-current="page">Courses</span></nav>
-    <h1>Explore courses</h1>
-    <p>Compare courses from verified Gujarat institutes. Every course has free preview lectures.</p>
-    <div class="pills exam-pills" role="group" aria-label="Quick exam filter" id="exam-pills"></div>
+<main id="main" class="c-wrap" data-role="visitor member">
+ <div class="container c-grid">
+  <!-- ================= HERO ================= -->
+  <div class="c-hero-txt">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html" data-home>Home</a><svg class="icon icon-14"><use href="#i-chev"/></svg><a href="test-series.html" data-list>Test series</a><svg class="icon icon-14"><use href="#i-chev"/></svg><span aria-current="page">GPSC Prelims 2027</span></nav>
+    <div class="tags">
+      <span class="chip-s caps s-blue">GPSC</span><span class="chip-s caps s-blue">Full-length mocks</span><span class="chip-s caps s-blue">ગુજરાતી + English</span>
+      <span class="chip-s caps s-purple" data-role="student"><svg class="icon"><use href="#i-verified"/></svg>Purchased</span>
+    </div>
+    <h1 class="title">GPSC Prelims 2027: 32 Full Mocks</h1>
+    <p class="lead">Exam-pattern mock tests for GS Paper 1 &amp; 2 with instant results, All-Gujarat rank and detailed solutions in both languages.</p>
+    <div class="c-facts">
+      <span><svg class="icon"><use href="#i-calendar"/></svg>Valid 12 months</span>
+      <span><svg class="icon"><use href="#i-clock"/></svg>100 questions · 60 min each</span>
+      <span><svg class="icon"><use href="#i-trophy"/></svg>All-Gujarat rank</span>
+      <span><svg class="icon"><use href="#i-monitor"/></svg>Web + app</span>
+    </div>
+    <div class="c-strip">
+      <div class="cs-inst">
+        <span class="tile green">SA</span>
+        <div class="grow"><a href="institute.html" class="n">Sankalp Academy<svg class="tick"><use href="#i-verified"/></svg></a><div class="s">Verified institute · Ahmedabad</div></div>
+      </div>
+      <div class="cs-stat"><b>4.8</b><span class="stars" aria-label="Rated 4.8 out of 5"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span><small>2,310 ratings</small></div>
+      <div class="cs-stat"><svg class="icon"><use href="#i-clipboard"/></svg><b>32</b><small>tests</small></div>
+      <div class="cs-stat"><svg class="icon"><use href="#i-users"/></svg><b>12.4k</b><small>enrolled</small></div>
+    </div>
   </div>
-</section>
 
-<main class="container x-body">
-  <!-- ================= Filters ================= -->
-  <aside class="card filters" id="filters" aria-label="Filters">
-    <div class="f-top"><h2>Filters</h2><button class="icon-btn" data-close-f aria-label="Close filters"><svg class="icon"><use href="#i-x"/></svg></button></div>
+  <!-- ================= MAIN ================= -->
+  <div class="c-main">
 
-    <div class="fgrp">
-      <h2>Search</h2>
-      <label class="search-f"><span class="sr-only">Search by course or institute</span><svg class="icon"><use href="#i-search"/></svg><input type="search" id="q" placeholder="Course or institute" autocomplete="off"></label>
-    </div>
+    <!-- Not purchased -->
+    <section class="card sc" data-role="visitor member">
+      <h2>What you get</h2>
+      <ul class="gets">
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>32 full-length mocks on the latest GPSC pattern</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Sectional tests for every GS subject</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>All-Gujarat rank against 12,000+ aspirants</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Detailed solutions and topic-wise analysis</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Bilingual: English and ગુજરાતી</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Attempt on web or in the MySankul app</li>
+      </ul>
+    </section>
 
-    <div class="fgrp">
-      <h2>Exam</h2>
-      <div id="f-exam"></div>
-    </div>
+    <section class="card sc" data-role="visitor member">
+      <h2>Tests in this series <small>32 tests · 1 free</small></h2>
+      <details class="grp" open>
+        <summary><span class="num">1</span><div class="grow"><div class="t">Full-length mocks</div><div class="m">16 tests · 100 Qs · 60 min</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><div class="grow"><div class="t">Full Mock #1 · Free</div><div class="m">100 questions · 60 min · 200 marks</div></div><a href="test.html" class="btn btn-outline btn-sm">Attempt free</a></div>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><div class="grow"><div class="t">Full Mock #2</div><div class="m">100 questions · 60 min · 200 marks</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><div class="grow"><div class="t">Full Mock #3</div><div class="m">100 questions · 60 min · 200 marks</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+      </details>
+      <details class="grp"><summary><span class="num">2</span><div class="grow"><div class="t">Polity &amp; Governance</div><div class="m">4 sectional tests · 50 Qs · 30 min</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-book"/></svg></span><div class="grow"><div class="t">Fundamental Rights &amp; DPSP</div><div class="m">50 questions · 30 min</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+      </details>
+      <details class="grp"><summary><span class="num">3</span><div class="grow"><div class="t">History of India &amp; Gujarat</div><div class="m">4 sectional tests · 50 Qs · 30 min</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-book"/></svg></span><div class="grow"><div class="t">Solanki to Maratha period</div><div class="m">50 questions · 30 min</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+      </details>
+      <details class="grp"><summary><span class="num">4</span><div class="grow"><div class="t">Geography &amp; Economy</div><div class="m">4 sectional tests · 50 Qs · 30 min</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-globe"/></svg></span><div class="grow"><div class="t">Rivers, dams and ports of Gujarat</div><div class="m">50 questions · 30 min</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+      </details>
+      <details class="grp"><summary><span class="num">5</span><div class="grow"><div class="t">CSAT (Paper 2)</div><div class="m">4 sectional tests · 80 Qs · 60 min</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="trow"><span class="ic-tile"><svg class="icon"><use href="#i-gauge"/></svg></span><div class="grow"><div class="t">Reasoning &amp; data interpretation</div><div class="m">80 questions · 60 min</div></div><svg class="icon lk"><use href="#i-lock"/></svg></div>
+      </details>
+    </section>
 
-    <div class="fgrp">
-      <h2>Class mode</h2>
-      <label class="opt"><input type="checkbox" name="mode" value="live"><span class="lbl">Live classes</span></label>
-      <label class="opt"><input type="checkbox" name="mode" value="recorded"><span class="lbl">Recorded</span></label>
-    </div>
+    <section class="card sc" data-role="visitor member">
+      <h2>Details</h2>
+      <div class="kv">
+        <div><span>Validity</span><b>12 months from purchase</b></div>
+        <div><span>Attempts per test</span><b>2</b></div>
+        <div><span>Marking</span><b>+2 correct · −0.66 wrong</b></div>
+        <div><span>Result</span><b>Instant, with All-Gujarat rank</b></div>
+        <div><span>Languages</span><b>English · ગુજરાતી</b></div>
+      </div>
+    </section>
 
-    <div class="fgrp">
-      <h2>Language</h2>
-      <label class="opt"><input type="checkbox" name="lang" value="gu"><span class="lbl">ગુજરાતી</span></label>
-      <label class="opt"><input type="checkbox" name="lang" value="en"><span class="lbl">English</span></label>
-      <label class="opt"><input type="checkbox" name="lang" value="hi"><span class="lbl">हिंदी</span></label>
-    </div>
+  </div>
 
-    <div class="fgrp">
-      <h2>Price</h2>
-      <label class="opt"><input type="radio" name="price" value="" checked><span class="lbl">Any price</span></label>
-      <label class="opt"><input type="radio" name="price" value="0-999"><span class="lbl">Under ₹1,000</span></label>
-      <label class="opt"><input type="radio" name="price" value="1000-4999"><span class="lbl">₹1,000 – ₹4,999</span></label>
-      <label class="opt"><input type="radio" name="price" value="5000-"><span class="lbl">₹5,000 and above</span></label>
-    </div>
-
-    <div class="fgrp">
-      <h2>Minimum rating</h2>
-      <label class="opt"><input type="radio" name="rating" value="0" checked><span class="lbl">Any rating</span></label>
-      <label class="opt"><input type="radio" name="rating" value="4.5"><span class="lbl"><svg class="star"><use href="#i-star"/></svg>4.5 &amp; above</span></label>
-      <label class="opt"><input type="radio" name="rating" value="4.7"><span class="lbl"><svg class="star"><use href="#i-star"/></svg>4.7 &amp; above</span></label>
-    </div>
-
-    <div class="f-apply">
-      <button class="btn btn-outline" data-clear>Clear all</button>
-      <button class="btn btn-primary" data-close-f id="f-show">Show courses</button>
+  <!-- ================= SIDE ================= -->
+  <aside class="side" aria-label="Buy this series">
+    <div class="card buy" data-role="visitor member">
+      <div class="buy-cover cg-blue"><span class="chip-s caps s-blue">Top rated</span><svg class="icon"><use href="#i-clipboard"/></svg></div>
+      <div class="buy-in">
+        <div class="p"><b>₹1,499</b><span class="strike">₹3,000</span><span class="chip-s s-green">50% off</span></div>
+        <a href="signin.html?next=series.html%3Fas%3Dmember" class="btn btn-primary btn-lg btn-block" data-role="visitor">Buy series</a>
+        <button class="btn btn-primary btn-lg btn-block" data-role="member" data-open="sh-pay">Buy series</button>
+        <a href="test.html" class="btn btn-outline btn-block"><svg class="icon icon-16"><use href="#i-play"/></svg>Attempt free mock</a>
+        <ul>
+          <li><svg class="icon"><use href="#i-clipboard"/></svg>32 tests · 2 attempts each</li>
+          <li><svg class="icon"><use href="#i-trophy"/></svg>All-Gujarat rank and leaderboard</li>
+          <li><svg class="icon"><use href="#i-shield"/></svg>7-day refund if no test attempted</li>
+        </ul>
+      </div>
     </div>
   </aside>
-  <div class="f-bg" data-close-f></div>
+ </div>
+</main>
 
-  <!-- ================= Results ================= -->
-  <section id="results" aria-label="Courses">
-    <div class="bar-top">
-      <button class="btn btn-outline btn-sm f-open" id="f-open" aria-controls="filters"><svg class="icon icon-16"><use href="#i-sliders"/></svg>Filters<span id="f-n"></span></button>
-      <div class="count" id="count" aria-live="polite"></div>
-      <div class="sp"></div>
-      <label class="sort"><span>Sort by</span>
-        <select id="sort" aria-label="Sort courses">
-          <option value="popular">Most popular</option>
-          <option value="rating">Highest rated</option>
-          <option value="new">Newest</option>
-          <option value="low">Price: low to high</option>
-          <option value="high">Price: high to low</option>
-        </select>
-      </label>
-    </div>
-    <div class="chips" id="chips"></div>
-    <div class="xgrid" id="grid"></div>
-    <div class="card empty-x" id="empty" hidden>
-      <span class="ic-tile"><svg class="icon"><use href="#i-search"/></svg></span>
-      <h3>No courses match these filters</h3>
-      <p>Try removing a filter or searching for a different exam or institute.</p>
-      <button class="btn btn-primary" data-clear>Clear all filters</button>
-    </div>
-    <div class="more-wrap" id="more-wrap" hidden>
-      <span id="shown"></span>
-      <div class="bar"><span id="shown-bar"></span></div>
-      <button class="btn btn-outline" id="more">Load more courses</button>
+<!-- ================= OWNER VIEW (purchased) ================= -->
+<main class="own" id="own" data-role="student">
+  <section class="own-band">
+    <div class="container">
+      <div class="own-top">
+        <div class="grow">
+          <div class="own-kick"><span class="chip-s caps"><svg class="icon"><use href="#i-verified"/></svg>Purchased</span><span>by</span><a href="institute.html?as=member">Sankalp Academy<svg class="tick"><use href="#i-verified"/></svg></a><span>·</span><a href="test-series.html?as=member#my">My test series</a></div>
+          <h1>GPSC Prelims 2027: 32 Full Mocks</h1>
+          <div class="own-valid">
+            <span><svg class="icon"><use href="#i-calendar"/></svg>Valid till 12 Oct 2027 · 383 days left</span>
+            <span><svg class="icon"><use href="#i-clipboard"/></svg>16 full mocks + 16 subject tests</span>
+          </div>
+        </div>
+        <div class="own-kpis">
+          <div class="ring2" style="--p:47"><div><div><b>15/32</b><span>done</span></div></div></div>
+          <div class="kpi"><b>118<small>/200</small><span class="up">▲26</span></b><span>Best score</span></div>
+          <div class="kpi-sep"></div>
+          <div class="kpi"><b>72%</b><span>Accuracy</span></div>
+          <div class="kpi-sep"></div>
+          <div class="kpi"><b>#214</b><span>Best rank · top 4%</span></div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <div class="container">
+    <section class="next" aria-label="Next up">
+      <span class="big-ic"><svg class="icon"><use href="#i-clock"/></svg></span>
+      <div class="grow">
+        <small>Continue where you left off</small>
+        <h2>Full Mock #8</h2>
+        <div class="m">Paused at question 42 of 100 · 41 answered · 36 min left on the timer</div>
+        <div class="qbar"><div class="bar"><span style="width:42%"></span></div>42%</div>
+      </div>
+      <div class="acts">
+        <a href="test.html#player" class="btn btn-primary btn-lg"><svg class="icon"><use href="#i-play"/></svg>Resume test</a>
+        <a href="test.html" class="link">Start Full Mock #9 instead</a>
+      </div>
+    </section>
+
+    <div class="own-body">
+      <div class="own-main">
+
+        <!-- Performance -->
+        <section class="card blk" aria-labelledby="perf-t">
+          <div class="blk-h">
+            <div><h2 id="perf-t">Your performance</h2><p>Full mocks #1 – #7 · marks out of 200</p></div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="delta" id="delta">▲ +26 since Mock #1</span>
+              <div class="seg2" role="group" aria-label="Chart metric" id="metric"><button aria-pressed="true" data-m="score">Score</button><button aria-pressed="false" data-m="rank">Rank</button></div></div>
+          </div>
+          <div class="perf-g">
+            <div class="chart" id="chart" role="img" aria-label="Score trend across 7 full mocks"></div>
+            <div class="subj">
+              <h3>Accuracy by subject</h3>
+              <div id="subj-bars"></div>
+            </div>
+          </div>
+          <div class="focus">
+            <span class="ic-tile"><svg class="icon"><use href="#i-target"/></svg></span>
+            <div class="grow"><b>Focus next: Economy (52% accuracy)</b>Your weakest subject across the last 3 mocks. One sectional test is waiting.</div>
+            <a href="test.html" class="btn btn-primary btn-sm">Start Economy test</a>
+          </div>
+        </section>
+
+        <!-- Full mocks journey -->
+        <section class="card blk" aria-labelledby="mk-t">
+          <div class="blk-h">
+            <div><h2 id="mk-t">Full mocks</h2><p>7 of 16 done · 100 questions · 60 min · a new mock opens every Sunday</p></div>
+            <div class="legend2"><span><i class="g-good"></i>110+</span><span><i style="background:var(--blue-600)"></i>95–109</span><span><i class="g-mid"></i>Below 95</span></div>
+          </div>
+          <div class="mocks" id="mocks"></div>
+        </section>
+
+        <!-- Subject tests -->
+        <section class="card blk" aria-labelledby="sj-t">
+          <div class="blk-h">
+            <div><h2 id="sj-t">Subject tests</h2><p>8 of 16 done · 50 questions · 30 min each</p></div>
+            <a href="test.html#solutions" class="link" style="font-size:14px">Bookmarked questions</a>
+          </div>
+          <div class="subjects" id="subjects"></div>
+        </section>
+      </div>
+
+      <!-- Side -->
+      <aside class="own-side" aria-label="Upcoming and leaderboard">
+        <div class="card live">
+          <div class="live-h">All-Gujarat live mock</div>
+          <div class="live-b">
+            <div class="cal"><small>SUN</small><b>28</b></div>
+            <div><div class="t">Full Mock #10</div><div class="m">28 Sep · 10:00 AM · 5,812 registered</div></div>
+          </div>
+          <button class="btn btn-outline btn-block remind" id="remind" aria-pressed="false"><svg class="icon icon-16"><use href="#i-bell"/></svg><span>Remind me</span></button>
+        </div>
+
+        <div class="card mini-lb">
+          <div class="hd"><b>Leaderboard</b><small>Full Mock #7 · 5,880 aspirants</small></div>
+          <div class="lbr r1"><span class="rk">1</span><span class="grow">Priya Kulkarni</span><span class="s">184</span></div>
+          <div class="lbr"><span class="rk">2</span><span class="grow">Manish Joshi</span><span class="s">179</span></div>
+          <div class="lbr"><span class="rk">3</span><span class="grow">Tanvi Shah</span><span class="s">176</span></div>
+          <div class="lb-gap">• • •</div>
+          <div class="lbr me"><span class="rk">#318</span><span class="grow">You</span><span class="s">115</span></div>
+          <a href="test.html#leaderboard" class="btn btn-soft btn-block btn-sm" style="margin-top:12px">Full leaderboard</a>
+        </div>
+
+        <div class="card val">
+          <span class="ic-tile"><svg class="icon"><use href="#i-receipt"/></svg></span>
+          <div class="grow"><b>Paid ₹1,499</b>21 Sep 2026 · 2 attempts per test</div>
+          <a href="profile.html#orders" class="link" style="font-size:13px">Invoice</a>
+        </div>
+      </aside>
+    </div>
+  </div>
 </main>
+
 
 <footer class="lg site-footer" data-role="visitor">
   <div class="container">
@@ -714,11 +1080,40 @@ ul { list-style: none; margin: 0; padding: 0; }
   })();
 </script>
 
+<div class="mbar" data-role="visitor member">
+  <div class="grow"><span class="strike">₹3,000</span><b>₹1,499</b></div>
+  <a href="test.html" class="btn btn-soft">Free mock</a>
+  <a href="signin.html?next=series.html%3Fas%3Dmember" class="btn btn-primary" data-role="visitor">Buy series</a>
+  <button class="btn btn-primary" data-role="member" data-open="sh-pay">Buy series</button>
+</div>
+<div class="mbar" data-role="student">
+  <div class="grow"><b>Full Mock #8</b>Q 42 of 100 · 36 min left</div>
+  <a href="test.html#player" class="btn btn-primary">Resume</a>
+</div>
+
+<div class="sheet-bg" id="sh-pay" role="dialog" aria-modal="true" aria-labelledby="pay-t">
+  <div class="sheet">
+    <h2 id="pay-t">Buy this test series</h2>
+    <p class="body">GPSC Prelims 2027: 32 Full Mocks</p>
+    <div class="kv" style="margin-top:16px;text-align:left">
+      <div><span>Series price</span><b>₹3,000</b></div>
+      <div><span>Discount</span><b style="color:var(--green-700)">– ₹1,501</b></div>
+      <div><span>Total (incl. GST)</span><b style="font-size:18px">₹1,499</b></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-soft" data-close>Cancel</button>
+      <button class="btn btn-primary" id="pay-btn">Pay ₹1,499</button>
+    </div>
+  </div>
+</div>
+
 <label class="proto"><span>Preview as</span>
   <select id="proto-as" aria-label="Preview the page as">
     <option value="visitor">Visitor (logged out)</option>
-    <option value="member">Signed in</option>
+    <option value="member">Signed in · not bought</option>
+    <option value="student">Purchased</option>
   </select>
+  <a class="proto-lay" href="series.html">← Previous layout</a>
 </label>
 
 <script>
@@ -895,163 +1290,103 @@ ul { list-style: none; margin: 0; padding: 0; }
 </script>
 <script>
 (function () {
-  /* ---------- Data (replace with API) ---------- */
-  const EXAMS = [
-    ['gpsc', 'GPSC'], ['gsssb', 'GSSSB'], ['police', 'Gujarat Police / LRD'], ['talati', 'Talati'],
-    ['binsach', 'Bin Sachivalay'], ['upsc', 'UPSC'], ['bank', 'Banking'], ['tet', 'TET / TAT'], ['school', 'Class 6–12']
-  ];
-  const LANG = { gu: 'ગુજરાતી', en: 'English', hi: 'हिंदी' };
-  // id, title, exam, institute, initials, mode, langs, rating, ratings, lectures, hours, price, mrp, badge, cover, icon, added (newer = bigger), learners
-  const C = [
-    ['GPSC Class 1 & 2: Complete Foundation 2027', 'gpsc', 'Vidhyadeep Academy', 'VA', 'both', ['gu','en'], 4.8, 1120, 148, 32, 2399, 3999, 'Bestseller', 'cg-blue', 'book', 9, 2340],
-    ['GPSC Prelims 2026: GS Paper 1 & 2 with 40 mocks', 'gpsc', 'Vidhyadeep Academy', 'VA', 'live', ['gu','en'], 4.9, 2310, 220, 180, 7999, 11999, 'New batch', 'cg-teal', 'target', 12, 3180],
-    ['Gujarati Vyakaran: 120 lessons + PDF notes', 'gsssb', 'Shabd Sankul Classes', 'SS', 'recorded', ['gu'], 4.7, 1480, 120, 26, 799, 1499, 'Bestseller', 'cg-orange', 'edit', 4, 5120],
-    ['GSSSB CCE Group A & B: full syllabus batch', 'gsssb', 'Prayas Career Academy', 'PC', 'both', ['gu'], 4.6, 860, 160, 90, 3499, 5999, null, 'cg-violet', 'clipboard', 10, 1890],
-    ['LRD Reasoning & Maths: 60 hrs + 25 sectional tests', 'police', 'Lakshya Career Point', 'LC', 'recorded', ['gu','hi'], 4.7, 1960, 64, 60, 599, 999, 'Top rated', 'cg-pink', 'gauge', 7, 4410],
-    ['Gujarat Police Constable 2026: physical + written plan', 'police', 'Lakshya Career Point', 'LC', 'live', ['gu'], 4.5, 540, 96, 72, 1999, 3499, 'New batch', 'cg-green', 'shield', 11, 980],
-    ['Talati cum Mantri: 30-day revision crash course', 'talati', 'Gyan Setu Institute', 'GS', 'live', ['gu'], 4.6, 710, 45, 38, 999, 1999, null, 'cg-slate', 'calendar', 8, 1560],
-    ['Talati + Bin Sachivalay combo: GK, Gujarati, Maths', 'talati', 'Prayas Career Academy', 'PC', 'both', ['gu'], 4.4, 390, 130, 84, 2999, 4999, null, 'cg-teal', 'book', 5, 820],
-    ['Bin Sachivalay Clerk: 50 full mock tests', 'binsach', 'Gyan Setu Institute', 'GS', 'recorded', ['gu','en'], 4.5, 620, 50, 50, 499, 999, null, 'cg-blue', 'clipboard', 6, 2200],
-    ['UPSC CSE Prelims: GS + CSAT with Gujarat focus', 'upsc', 'Vidhyadeep Academy', 'VA', 'both', ['en','gu'], 4.8, 940, 260, 210, 12999, 18999, 'Top rated', 'cg-violet', 'globe', 3, 1270],
-    ['Current Affairs monthly: Sept 2026 edition', 'upsc', 'Shabd Sankul Classes', 'SS', 'recorded', ['gu','en'], 4.6, 1320, 22, 11, 199, 399, null, 'cg-orange', 'file-text', 13, 6040],
-    ['IBPS / SBI Quantitative Aptitude crash course', 'bank', 'Arth Banking Academy', 'AB', 'recorded', ['en','gu'], 4.7, 2120, 40, 28, 999, 1999, 'Bestseller', 'cg-green', 'gauge', 2, 3900],
-    ['Reasoning for Bank PO & Clerk', 'bank', 'Arth Banking Academy', 'AB', 'both', ['en'], 4.7, 1480, 38, 26, 899, 1800, null, 'cg-slate', 'target', 1, 2650],
-    ['TET / TAT Paper 1 & 2: pedagogy + subject batch', 'tet', 'Shikshan Setu Classes', 'SC', 'live', ['gu'], 4.5, 480, 110, 88, 2499, 3999, 'New batch', 'cg-pink', 'users', 14, 740],
-    ['Class 10 Science (GSEB): full syllabus + board papers', 'school', 'Pragati Tutorials', 'PT', 'live', ['gu','en'], 4.8, 1750, 140, 96, 2999, 4499, 'Bestseller', 'cg-teal', 'spark', 15, 4820],
-    ['Class 12 Commerce: Accounts & Economics', 'school', 'Pragati Tutorials', 'PT', 'both', ['gu','en'], 4.6, 690, 180, 120, 4999, 6999, null, 'cg-blue', 'book', 9, 1330],
-    ['Class 8 Maths: foundation with weekly tests', 'school', 'Gyan Setu Institute', 'GS', 'recorded', ['gu'], 4.4, 260, 72, 40, 1499, 2499, null, 'cg-orange', 'level', 6, 610],
-    ['NEET / GUJCET Biology crash course', 'school', 'Pragati Tutorials', 'PT', 'live', ['en','gu'], 4.7, 880, 90, 70, 5999, 8999, 'Top rated', 'cg-violet', 'spark', 12, 1480]
-  ].map((r, i) => ({ id: i, title: r[0], exam: r[1], inst: r[2], ini: r[3], mode: r[4], langs: r[5], rating: r[6], ratings: r[7], lec: r[8], hrs: r[9], price: r[10], mrp: r[11], badge: r[12], cover: r[13], icon: r[14], added: r[15], learners: r[16] }));
-
   const $ = id => document.getElementById(id);
-  const inr = n => '₹' + n.toLocaleString('en-IN');
-  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-  const PAGE = 9;
-  let shown = PAGE;
-  const saved = new Set();
-
-  /* ---------- Role (review only) ---------- */
-  const params = new URLSearchParams(location.search);
-  const role = params.get('as') === 'member' ? 'member' : 'visitor';
-  document.body.className = 'role-' + role;
-  $('proto-as').value = role;
-  $('proto-as').onchange = e => { params.set('as', e.target.value); if (e.target.value === 'visitor') params.delete('as'); location.search = params.toString(); };
-  const courseHref = role === 'member' ? 'course.html?as=member' : 'course.html';
-  if (role === 'member') document.querySelectorAll('[data-home]').forEach(a => a.href = 'home.html');
-
-  /* ---------- Exam filter UI ---------- */
-  const countBy = k => C.filter(c => c.exam === k).length;
-  $('f-exam').innerHTML = [['', 'All exams']].concat(EXAMS).map(([k, n]) =>
-    `<label class="opt"><input type="radio" name="exam" value="${k}"${k === '' ? ' checked' : ''}><span class="lbl">${n}</span><span class="n">${k ? countBy(k) : C.length}</span></label>`).join('');
-  $('exam-pills').innerHTML = [['', 'All']].concat(EXAMS).map(([k, n]) =>
-    `<button class="pill" data-exam="${k}" aria-pressed="${k === '' ? 'true' : 'false'}">${n}</button>`).join('');
-
-  /* ---------- State ---------- */
-  const val = n => (document.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
-  const vals = n => [...document.querySelectorAll(`input[name="${n}"]:checked`)].map(i => i.value);
-  function setExam(k) {
-    const r = document.querySelector(`input[name="exam"][value="${k}"]`); if (r) r.checked = true;
-    document.querySelectorAll('#exam-pills .pill').forEach(p => p.setAttribute('aria-pressed', String(p.dataset.exam === k)));
+  function setRole(r) {
+    document.body.className = 'role-' + r;
+    $('proto-as').value = r;
+    const p = new URLSearchParams(location.search);
+    r === 'visitor' ? p.delete('as') : p.set('as', r);
+    const q = p.toString();
+    history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+    document.querySelectorAll('[data-list]').forEach(a => a.href = 'test-series.html' + (r === 'visitor' ? '' : '?as=member' + (r === 'student' ? '#my' : '')));
+    document.querySelectorAll('[data-home]').forEach(a => a.href = r === 'visitor' ? 'index.html' : 'home.html');
   }
-  if (params.get('exam') && EXAMS.some(e => e[0] === params.get('exam'))) setExam(params.get('exam'));
-  if (params.get('q')) $('q').value = params.get('q');
+  const start = new URLSearchParams(location.search).get('as');
+  setRole(['member', 'student'].includes(start) ? start : 'visitor');
+  $('proto-as').onchange = e => setRole(e.target.value);
 
-  function filtered() {
-    const q = $('q').value.trim().toLowerCase(), ex = val('exam'), modes = vals('mode'), langs = vals('lang'),
-          pr = val('price'), rt = parseFloat(val('rating') || 0);
-    let list = C.filter(c =>
-      (!q || (c.title + ' ' + c.inst).toLowerCase().includes(q)) &&
-      (!ex || c.exam === ex) &&
-      (!modes.length || modes.some(m => c.mode === m || c.mode === 'both')) &&
-      (!langs.length || langs.some(l => c.langs.includes(l))) &&
-      (!pr || (() => { const [a, b] = pr.split('-'); return c.price >= +a && (!b || c.price <= +b); })()) &&
-      c.rating >= rt);
-    const s = $('sort').value;
-    const by = { popular: (a, b) => b.learners - a.learners, rating: (a, b) => b.rating - a.rating || b.ratings - a.ratings, new: (a, b) => b.added - a.added, low: (a, b) => a.price - b.price, high: (a, b) => b.price - a.price }[s];
-    return list.sort(by);
-  }
+  $('pay-btn').onclick = () => {
+    $('pay-btn').disabled = true; $('pay-btn').textContent = 'Processing…';
+    setTimeout(() => {
+      $('sh-pay').classList.remove('open');
+      $('pay-btn').disabled = false; $('pay-btn').textContent = 'Pay ₹1,499';
+      setRole('student'); scrollTo({ top: 0, behavior: 'smooth' });
+      msToast('Payment successful. All 32 tests are unlocked.');
+    }, 900);
+  };
 
-  const MODE = { live: ['live', 'radio', 'Live'], recorded: ['', 'video', 'Recorded'], both: ['', 'monitor', 'Live + Recorded'] };
-  function card(c) {
-    const off = Math.round((1 - c.price / c.mrp) * 100), m = MODE[c.mode], fav = saved.has(c.id);
-    return `<article class="ccard">
-  <div class="ccard-img ${c.cover}">
-    ${c.badge ? `<span class="ccard-badge">${c.badge}</span>` : ''}
-    <svg class="icon ccard-ic" aria-hidden="true"><use href="#i-${c.icon}"/></svg>
-    <span class="ccard-mode ${m[0]}"><svg><use href="#i-${m[1]}"/></svg>${m[2]}</span>
-    <button class="ccard-fav" data-fav="${c.id}" aria-pressed="${fav}" aria-label="${fav ? 'Remove from' : 'Save to'} wishlist"><svg><use href="#i-${fav ? 'heart-fill' : 'heart'}"/></svg></button>
-  </div>
-  <h3 class="ccard-title"><a class="ccard-link" href="${courseHref}">${esc(c.title)}</a></h3>
-  <div class="ccard-inst"><span class="ccard-av">${c.ini}</span><span class="nm">${c.inst}</span><svg class="ccard-tick" aria-label="Verified institute"><use href="#i-verified"/></svg></div>
-  <div class="ccard-meta"><span class="r"><svg><use href="#i-star"/></svg>${c.rating}<small>(${c.ratings.toLocaleString('en-IN')})</small></span><span>${c.lec} lectures</span><span>${c.hrs}h</span></div>
-  <div class="ccard-lang">${c.langs.map(l => LANG[l]).join(' · ')}</div>
-  <div class="ccard-foot"><div class="ccard-price"><s>${inr(c.mrp)}</s><div><b>${inr(c.price)}</b><span class="ccard-off">${off}% off</span></div></div><span class="ccard-btn">View course</span></div>
-</article>`;
-  }
-
-  function chips() {
-    const out = [];
-    const add = (label, clear) => out.push({ label, clear });
-    const q = $('q').value.trim(); if (q) add(`“${q}”`, () => $('q').value = '');
-    const ex = val('exam'); if (ex) add(EXAMS.find(e => e[0] === ex)[1], () => setExam(''));
-    document.querySelectorAll('input[name="mode"]:checked, input[name="lang"]:checked').forEach(i => add(i.closest('.opt').querySelector('.lbl').textContent, () => i.checked = false));
-    const pr = document.querySelector('input[name="price"]:checked'); if (pr && pr.value) add(pr.closest('.opt').textContent.trim(), () => document.querySelector('input[name="price"][value=""]').checked = true);
-    const rt = document.querySelector('input[name="rating"]:checked'); if (rt && rt.value !== '0') add('★ ' + rt.closest('.opt').textContent.trim(), () => document.querySelector('input[name="rating"][value="0"]').checked = true);
-    $('chips').innerHTML = out.length ? out.map((o, i) => `<button class="fchip" data-chip="${i}">${esc(o.label)}<svg class="icon"><use href="#i-x"/></svg></button>`).join('') + '<button class="link clear-all" data-clear>Clear all</button>' : '';
-    $('chips').querySelectorAll('[data-chip]').forEach(b => b.onclick = () => { out[+b.dataset.chip].clear(); shown = PAGE; render(); });
-    $('chips').querySelectorAll('[data-clear]').forEach(b => b.onclick = clearAll);
-    $('f-n').textContent = out.length ? ` (${out.length})` : '';
-  }
-
-  function render() {
-    const list = filtered(), total = list.length, vis = list.slice(0, shown);
-    $('grid').innerHTML = vis.map(card).join('');
-    $('grid').hidden = !total; $('empty').hidden = !!total;
-    $('count').innerHTML = `<b>${total}</b> course${total === 1 ? '' : 's'}`;
-    $('f-show').textContent = `Show ${total} course${total === 1 ? '' : 's'}`;
-    $('more-wrap').hidden = total <= PAGE;
-    $('shown').textContent = `Showing ${vis.length} of ${total}`;
-    $('shown-bar').style.width = (vis.length / Math.max(total, 1) * 100) + '%';
-    $('more').hidden = vis.length >= total;
-    chips();
-  }
-
-  function clearAll() {
-    $('q').value = ''; setExam('');
-    document.querySelectorAll('input[name="mode"], input[name="lang"]').forEach(i => i.checked = false);
-    document.querySelector('input[name="price"][value=""]').checked = true;
-    document.querySelector('input[name="rating"][value="0"]').checked = true;
-    shown = PAGE; render();
-  }
-
-  /* ---------- Events ---------- */
-  $('filters').addEventListener('change', e => { if (e.target.name === 'exam') setExam(e.target.value); shown = PAGE; render(); });
-  let t; $('q').addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { shown = PAGE; render(); }, 150); });
-  $('sort').onchange = render;
-  $('more').onclick = () => { shown += PAGE; render(); };
-  $('exam-pills').addEventListener('click', e => { const p = e.target.closest('.pill'); if (!p) return; setExam(p.dataset.exam); shown = PAGE; render(); });
-  document.querySelectorAll('[data-clear]').forEach(b => b.addEventListener('click', clearAll));
-  $('grid').addEventListener('click', e => {
-    const f = e.target.closest('[data-fav]'); if (!f) return;
-    e.preventDefault();
-    if (role === 'visitor') { msToast('Sign in to save courses to your wishlist', 'info'); return; }
-    const id = +f.dataset.fav, on = !saved.has(id);
-    on ? saved.add(id) : saved.delete(id);
-    f.setAttribute('aria-pressed', String(on));
-    f.setAttribute('aria-label', (on ? 'Remove from' : 'Save to') + ' wishlist');
-    f.querySelector('use').setAttribute('href', on ? '#i-heart-fill' : '#i-heart');
-    msToast(on ? 'Saved to wishlist' : 'Removed from wishlist', on ? 'success' : 'info');
+  /* ---------- Owner view ---------- */
+  const MOCK = [[92, 1320], [104, 780], [98, 1010], [111, 420], [118, 214], [109, 510], [115, 318]];
+  const band = s => s >= 110 ? 'g-good' : s >= 95 ? '' : 'g-mid';
+  const opens = ['28 Sep', '5 Oct', '12 Oct', '19 Oct', '26 Oct', '2 Nov', '9 Nov'];
+  let h = '';
+  MOCK.forEach(([s, r], i) => {
+    const b = band(s), best = s === Math.max(...MOCK.map(m => m[0]));
+    h += `<a class="mk done" href="test.html#result" aria-label="Full Mock ${i + 1}, score ${s} of 200, rank ${r}">
+      <span class="no">#${i + 1}${best ? '<span class="tag" style="background:var(--green-100);color:var(--green-700)">Best</span>' : '<svg class="icon"><use href="#i-check-circle"/></svg>'}</span>
+      <span class="mv">${s}<small>/200</small></span><span class="sub">Rank #${r.toLocaleString('en-IN')}</span>
+      <span class="strip ${b}" style="${b ? '' : 'background:var(--blue-600)'}"></span></a>`;
   });
+  h += `<a class="mk prog" href="test.html#player"><span class="no">#8<span class="tag">In progress</span></span><span class="mv">Q 42 of 100</span><span class="sub">36 min left · Resume</span></a>`;
+  h += `<a class="mk nextup" href="test.html"><span class="no">#9<span class="tag">Up next</span></span><span class="mv">Ready to start</span><span class="sub">100 Qs · 60 min</span></a>`;
+  opens.forEach((d, i) => { h += `<div class="mk soon"><span class="no">#${i + 10}<svg class="icon icon-16" style="color:var(--slate-400)"><use href="#i-lock"/></svg></span><span class="mv">Opens ${d}</span><span class="sub">${i === 0 ? 'Live · All-Gujarat' : 'Sunday release'}</span></div>`; });
+  $('mocks').innerHTML = h;
 
-  // Mobile filter sheet
-  const F = $('filters'), BG = document.querySelector('.f-bg');
-  const openF = o => { F.classList.toggle('open', o); BG.classList.toggle('open', o); $('f-open').setAttribute('aria-expanded', String(o)); document.body.style.overflow = o ? 'hidden' : ''; };
-  $('f-open').onclick = () => openF(true);
-  document.querySelectorAll('[data-close-f]').forEach(b => b.addEventListener('click', () => openF(false)));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') openF(false); });
+  const SUBJ = [
+    ['Polity', 84], ['History', 78], ['Geography', 71], ['CSAT', 66], ['Environment', 61], ['Economy', 52]
+  ];
+  const cls = v => v >= 75 ? 'good' : v >= 60 ? 'mid' : 'bad';
+  $('subj-bars').innerHTML = SUBJ.map(([n, v]) => `<div class="sb"><span class="n">${n}</span><span class="t"><span class="g-${cls(v)}" style="width:${v}%"></span></span><b class="c-${cls(v)}">${v}%</b></div>`).join('');
 
-  render();
+  const ST = [
+    ['Polity', 'book', [['Fundamental Rights & DPSP', 82], ['Parliament & Judiciary', 76]]],
+    ['History', 'book', [['Ancient India', 80], ['Modern India', 72], ['Gujarat: Solanki to Maratha', 84]]],
+    ['Geography', 'globe', [['India: physical & economic', 68], ['Gujarat: rivers, dams, ports', 74]]],
+    ['Economy', 'wallet', [['Basics & monetary policy', 48], ['Union & Gujarat budget', null, 'focus']]],
+    ['GS extras', 'spark', [['Environment', null], ['Science & Tech', null], ['Current affairs: Sept', null]]],
+    ['CSAT (Paper 2)', 'gauge', [['Reasoning', null], ['Maths', null], ['Comprehension', null], ['CSAT full test', null]]]
+  ];
+  $('subjects').innerHTML = ST.map(([n, ic, rows]) => {
+    const done = rows.filter(r => r[1] !== null).length, all = rows.length, pct = Math.round(done / all * 100);
+    return `<div class="sj ${done === all ? 'complete' : ''}">
+      <div class="sj-h"><span class="ic-tile"><svg class="icon"><use href="#i-${done === all ? 'check' : ic}"/></svg></span><div class="grow"><b>${n}</b><small>${done} of ${all} done</small></div><div class="bar ${done === all ? 'green' : ''}"><span style="width:${pct}%"></span></div></div>
+      ${rows.map(([t, s, f]) => s !== null
+        ? `<a class="sj-r" href="test.html#result"><span class="dot g-${cls(s)}"></span><span class="grow">${t}</span><span class="pill-s c-${cls(s)}">${s}/100</span></a>`
+        : `<a class="sj-r" href="test.html"><span class="dot"></span><span class="grow">${t}</span><span class="go ${f ? 'primary' : ''}">Start</span></a>`).join('')}
+    </div>`;
+  }).join('');
+
+  /* Chart (inline SVG) */
+  function chart(metric) {
+    const W = 560, H = 220, L = 36, R = 12, T = 22, B = 28;
+    const vals = MOCK.map(m => metric === 'score' ? m[0] : m[1]);
+    const lo = metric === 'score' ? 80 : 0, hi = metric === 'score' ? 130 : 1400;
+    const x = i => L + i * (W - L - R) / (vals.length - 1);
+    const y = v => metric === 'score' ? T + (hi - v) / (hi - lo) * (H - T - B) : T + (v - lo) / (hi - lo) * (H - T - B);
+    const ticks = metric === 'score' ? [80, 90, 100, 110, 120, 130] : [0, 350, 700, 1050, 1400];
+    const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(' ');
+    const bestI = metric === 'score' ? vals.indexOf(Math.max(...vals)) : vals.indexOf(Math.min(...vals));
+    $('chart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
+      <defs><linearGradient id="cg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#166ACA" stop-opacity=".18"/><stop offset="1" stop-color="#166ACA" stop-opacity="0"/></linearGradient></defs>
+      ${ticks.map(t => `<line class="gl" x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}"/><text class="yl" x="${L - 8}" y="${y(t) + 4}">${metric === 'rank' ? (t ? t.toLocaleString('en-IN') : '#1') : t}</text>`).join('')}
+      <polygon class="ar" points="${x(0)},${H - B} ${pts} ${x(vals.length - 1)},${H - B}"/>
+      <polyline class="ln" points="${pts}"/>
+      ${vals.map((v, i) => `<circle class="pt ${i === bestI ? 'best' : ''}" cx="${x(i)}" cy="${y(v)}" r="${i === bestI ? 6 : 4.5}"/><text class="vl" x="${x(i)}" y="${y(v) - 12}">${metric === 'rank' ? '#' + v.toLocaleString('en-IN') : v}</text><text class="xl" x="${x(i)}" y="${H - 6}">#${i + 1}</text>`).join('')}
+    </svg>`;
+    $('delta').textContent = metric === 'score' ? '▲ +26 since Mock #1' : '▲ 1,106 places since Mock #1';
+  }
+  $('metric').addEventListener('click', e => { const b = e.target.closest('[data-m]'); if (!b) return; $('metric').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); chart(b.dataset.m); });
+  chart('score');
+
+  $('remind').onclick = () => {
+    const on = $('remind').getAttribute('aria-pressed') !== 'true';
+    $('remind').setAttribute('aria-pressed', String(on));
+    $('remind').querySelector('span').textContent = on ? 'Reminder set · 9:50 AM' : 'Remind me';
+    $('remind').querySelector('use').setAttribute('href', on ? '#i-bell-on' : '#i-bell');
+    msToast(on ? "We'll remind you 10 minutes before the live mock" : 'Reminder removed', on ? 'success' : 'info');
+  };
 })();
 </script>
+<script>document.querySelectorAll('.proto-lay').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const as=new URLSearchParams(location.search).get('as');location.href=a.getAttribute('href')+(as?'?as='+as:'');}));</script>
 </body>
 </html>

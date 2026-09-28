@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPSC Class 1 & 2 — Complete Foundation 2027 · MySankul</title>
+<meta name="description" content="Live GPSC Class 1 & 2 foundation batch by Vidhyadeep Academy: 148 lectures, 40 live classes, 24 mock tests with state rank.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================
+   MySankul — App design system (web)
+   Source of truth: MySankul student mobile app screens.
+   Scope: profile.html, institute.html, signin.html ONLY.
+
+   COLOR RULES (one system, no extras)
+   - Blue   #166ACA  → every action: buttons, links, selected tabs, toggles, focus
+   - Green  #15803D  → institute identity (header) + success (verified, paid, % off, valid till)
+   - Red    #DC2626  → danger / failed / errors + SkillSankul entry point
+   - Amber  #F59E0B  → ratings stars, pending, "Top rated", warnings
+   - Purple #7C3AED  → "Purchased" state only
+   - Slate  neutrals → all text, borders, surfaces
+   TYPE: Plus Jakarta Sans · 12/13/14/16/18/20/24/28/32 (whole numbers) · 500/600/700
+   ICONS: one line set · 24 grid · 1.8 stroke · round caps
+   ========================================================== */
+
+:root {
+  /* Blue — primary action */
+  --blue-50:  #EEF4FB;
+  --blue-100: #E8F0FA;
+  --blue-200: #D0E1F4;
+  --blue-600: #166ACA;
+  --blue-700: #1257A8;
+  --blue-800: #0F4A8F;
+
+  /* Green — institute + success */
+  --green-50:  #E8F2EC;
+  --green-100: #DCFCE7;
+  --green-600: #16A34A;
+  --green-700: #15803D;
+
+  /* Red — danger */
+  --red-50:  #FEF2F2;
+  --red-100: #FEE2E2;
+  --red-600: #DC2626;
+  --red-700: #B91C1C;
+
+  /* Amber — rating / pending / warning */
+  --amber-50:  #FFFBEB;
+  --amber-100: #FEF3C7;
+  --amber-400: #FBBF24;
+  --amber-500: #F59E0B;
+  --amber-800: #92400E;
+
+  /* Purple — purchased only */
+  --purple-50:  #F5F3FF;
+  --purple-600: #7C3AED;
+
+  /* Slate — text, lines, surfaces */
+  --slate-900: #0F172A;
+  --slate-800: #1E293B;
+  --slate-600: #475569;
+  --slate-500: #64748B;
+  --slate-400: #94A3B8;
+  --slate-200: #E2E8F0;
+  --slate-100: #F1F5F9;
+  --bg:        #F6F8FB;
+  --white:     #FFFFFF;
+
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --r-8: 8px; --r-12: 12px; --r-16: 16px; --r-20: 20px; --pill: 999px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, .04), 0 2px 8px rgba(15, 23, 42, .04);
+  --shadow-float: 0 8px 24px rgba(15, 23, 42, .10);
+  --header-h: 72px;
+  --container: 1264px;  /* 1216px content + 24px padding each side */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { margin: 0; font-family: var(--font); font-size: 14px; line-height: 1.5; color: var(--slate-900); background: var(--bg); -webkit-font-smoothing: antialiased; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+:focus-visible { outline: 3px solid var(--blue-200); outline-offset: 2px; border-radius: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--slate-900); color: #fff; padding: 10px 16px; border-radius: var(--r-8); }
+.skip-link:focus { top: 12px; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- Icons ---------- */
+.icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-14 { width: 14px; height: 14px; }
+.icon-16 { width: 16px; height: 16px; }
+.icon-24 { width: 24px; height: 24px; }
+.star { color: var(--amber-500); fill: var(--amber-500); stroke: none; }
+.tick { width: 16px; height: 16px; color: var(--blue-600); flex: none; } /* verified institute tick = blue, as in app */
+
+/* ---------- Type ---------- */
+.t-32 { font-size: 32px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; }
+.t-28 { font-size: 28px; line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
+.t-24 { font-size: 24px; line-height: 1.3; font-weight: 700; }
+.t-20 { font-size: 20px; line-height: 1.35; font-weight: 700; }
+.t-18 { font-size: 18px; line-height: 1.4; font-weight: 700; }
+.t-16 { font-size: 16px; line-height: 1.45; font-weight: 600; }
+.t-14 { font-size: 14px; }
+.t-13 { font-size: 13px; }
+.t-12 { font-size: 12px; }
+.w-500 { font-weight: 500; } .w-600 { font-weight: 600; } .w-700 { font-weight: 700; }
+.c-900 { color: var(--slate-900); } .c-600 { color: var(--slate-600); } .c-500 { color: var(--slate-500); } .c-400 { color: var(--slate-400); }
+.c-blue { color: var(--blue-600); } .c-green { color: var(--green-700); } .c-red { color: var(--red-600); }
+.sec-label { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--slate-500); }
+.sec-rule { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; color: var(--blue-600); }
+.sec-rule::before, .sec-rule::after { content: ""; flex: 1; height: 1px; background: var(--slate-200); }
+.strike { text-decoration: line-through; color: var(--slate-400); font-size: 13px; }
+.dot-sep::before { content: "·"; margin: 0 6px; color: var(--slate-400); }
+
+/* ---------- Buttons (pill, as in app) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 48px; padding: 0 24px; border-radius: var(--pill);
+  font-size: 15px; font-weight: 600; white-space: nowrap;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, opacity .15s;
+}
+.btn:disabled, .btn[aria-disabled="true"] { cursor: not-allowed; }
+.btn-primary { background: var(--blue-600); color: #fff; }
+.btn-primary:hover:not(:disabled) { background: var(--blue-700); }
+.btn-primary:disabled { background: var(--slate-100); color: var(--slate-400); }
+.btn-soft { background: var(--slate-100); color: var(--slate-800); }
+.btn-soft:hover { background: var(--slate-200); }
+.btn-outline { background: #fff; color: var(--slate-800); border: 1px solid var(--slate-200); }
+.btn-outline:hover { border-color: var(--blue-200); color: var(--blue-600); }
+.btn-blue-outline { background: #fff; color: var(--blue-600); border: 1.5px solid var(--blue-600); }
+.btn-danger { background: var(--red-600); color: #fff; }
+.btn-danger:hover { background: var(--red-700); }
+.btn-lg { height: 52px; font-size: 16px; }
+.btn-sm { height: 36px; padding: 0 16px; font-size: 13px; }
+.btn-block { width: 100%; }
+.link { color: var(--blue-600); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+.link:hover { text-decoration: underline; }
+.link-red { color: var(--red-600); font-weight: 600; }
+
+/* ---------- Status chips ---------- */
+.chip-s {
+  display: inline-flex; align-items: center; gap: 4px; height: 24px; padding: 0 8px; border-radius: 6px;
+  font-size: 12px; font-weight: 600; white-space: nowrap;
+}
+.chip-s .icon { width: 14px; height: 14px; }
+.chip-s.caps { text-transform: uppercase; letter-spacing: .02em; font-size: 11px; font-weight: 700; }
+.s-green  { background: var(--green-100); color: var(--green-700); }
+.s-blue   { background: var(--blue-100);  color: var(--blue-600); }
+.s-purple { background: var(--purple-50); color: var(--purple-600); }
+.s-red    { background: var(--red-100);   color: var(--red-600); }
+.s-amber  { background: var(--amber-100); color: var(--amber-800); }
+.s-gold   { background: var(--amber-400); color: #78350F; }
+.s-slate  { background: var(--slate-100); color: var(--slate-600); }
+
+/* Filter pills (All / Courses / …) */
+.pills { display: flex; gap: 8px; flex-wrap: wrap; }
+.pill {
+  height: 36px; padding: 0 16px; border-radius: var(--pill); border: 1px solid var(--slate-200); background: #fff;
+  font-size: 13px; font-weight: 600; color: var(--slate-600); display: inline-flex; align-items: center; gap: 6px;
+}
+.pill:hover { border-color: var(--blue-200); color: var(--blue-600); }
+.pill[aria-pressed="true"] { background: var(--blue-600); border-color: var(--blue-600); color: #fff; }
+
+/* Segmented tabs (Courses 42 / Faculty 12 …) */
+.seg-tabs { display: flex; gap: 4px; padding: 6px; background: var(--slate-100); border-radius: var(--pill); overflow-x: auto; scrollbar-width: none; }
+.seg-tabs::-webkit-scrollbar { display: none; }
+.seg-tab {
+  flex: 1; min-width: max-content; height: 44px; padding: 0 20px; border-radius: var(--pill);
+  font-size: 15px; font-weight: 600; color: var(--slate-500); display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+}
+.seg-tab .n { font-size: 13px; font-weight: 600; color: var(--slate-400); }
+.seg-tab:hover { color: var(--slate-800); }
+.seg-tab[aria-selected="true"] { background: #fff; color: var(--blue-600); box-shadow: var(--shadow-card); }
+[role="tabpanel"][hidden] { display: none; }
+
+/* ---------- Surfaces ---------- */
+.card { background: #fff; border: 1px solid var(--slate-200); border-radius: var(--r-16); box-shadow: var(--shadow-card); }
+.card-p { padding: 20px; }
+.divider { height: 1px; background: var(--slate-200); border: 0; margin: 0; }
+
+/* Initials tiles */
+.tile {
+  width: 44px; height: 44px; border-radius: var(--r-12); flex: none;
+  display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 15px;
+  background: linear-gradient(160deg, #1E7FE0, var(--blue-700));
+}
+.tile.green { background: var(--green-600); }
+.tile-sm { width: 22px; height: 22px; border-radius: 6px; font-size: 10px; }
+.tile-lg { width: 64px; height: 64px; border-radius: var(--r-16); font-size: 22px; }
+.tile-xl { width: 88px; height: 88px; border-radius: var(--r-20); font-size: 30px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center; font-weight: 700; font-size: 14px; background: var(--blue-100); color: var(--blue-600); }
+.avatar-56 { width: 56px; height: 56px; font-size: 18px; }
+
+/* Icon tile (menu rows) — single tint for every row */
+.ic-tile { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--blue-50); color: var(--blue-600); flex: none; }
+.ic-tile.red { background: var(--red-50); color: var(--red-600); }
+.ic-tile.green { background: var(--green-100); color: var(--green-700); }
+
+/* Thumbnails */
+.thumb-sq { width: 64px; height: 64px; border-radius: var(--r-12); flex: none; background: linear-gradient(160deg, #2A9BF0 0%, var(--blue-600) 55%, var(--blue-800) 100%); }
+.cover {
+  position: relative; overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 2px, transparent 2px 9px),
+    linear-gradient(135deg, #64748B 0%, #334155 60%, #1E293B 100%);
+}
+.cover-blue { background: linear-gradient(160deg, #2A9BF0 0%, var(--blue-600) 55%, var(--blue-800) 100%); }
+
+/* Progress */
+.bar { height: 6px; border-radius: var(--pill); background: var(--slate-100); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: inherit; background: var(--blue-600); }
+.bar.green > span { background: var(--green-600); }
+
+/* ---------- Forms ---------- */
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field > label { font-size: 12px; font-weight: 600; color: var(--slate-600); text-transform: uppercase; letter-spacing: .03em; }
+.field > label .req { color: var(--red-600); }
+.input, .select {
+  height: 48px; width: 100%; border: 1px solid var(--slate-200); border-radius: var(--r-12); background: #fff; padding: 0 14px;
+  font-size: 15px; color: var(--slate-900); transition: border-color .15s, box-shadow .15s;
+}
+.input::placeholder { color: var(--slate-400); }
+.input:focus, .select:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 4px var(--blue-100); }
+.input.is-error { border-color: var(--red-600); box-shadow: 0 0 0 4px var(--red-50); }
+.input:disabled { background: var(--slate-100); color: var(--slate-500); }
+.help { font-size: 12px; color: var(--slate-500); }
+.help.err { color: var(--red-600); font-weight: 600; display: flex; gap: 4px; align-items: center; }
+.search { position: relative; }
+.search .icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--slate-400); }
+.search .input { padding-left: 44px; }
+
+.switch { position: relative; width: 44px; height: 26px; flex: none; }
+.switch input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; z-index: 1; }
+.switch span { position: absolute; inset: 0; border-radius: var(--pill); background: var(--slate-200); transition: background .15s; }
+.switch span::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(15,23,42,.2); transition: transform .15s; }
+.switch input:checked + span { background: var(--blue-600); }
+.switch input:checked + span::after { transform: translateX(18px); }
+.switch input:focus-visible + span { outline: 3px solid var(--blue-200); outline-offset: 2px; }
+
+/* ---------- Header (these pages) ---------- */
+.hdr { position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--slate-200); }
+.hdr .container { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: var(--slate-900); }
+.brand-mark { width: 32px; height: 32px; border-radius: 10px; background: var(--blue-600); color: #fff; display: grid; place-items: center; font-size: 16px; font-weight: 700; }
+.hdr-nav { display: flex; gap: 4px; }
+.hdr-nav a { height: 40px; padding: 0 14px; border-radius: var(--pill); display: inline-flex; align-items: center; font-size: 14px; font-weight: 600; color: var(--slate-600); }
+.hdr-nav a:hover { background: var(--slate-100); color: var(--slate-900); }
+.hdr-nav a[aria-current="page"] { background: var(--blue-50); color: var(--blue-600); }
+.hdr-search { flex: 1; max-width: 380px; }
+.hdr-search .input { height: 40px; border-radius: var(--pill); background: var(--bg); font-size: 14px; }
+.hdr-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--slate-600); position: relative; }
+.icon-btn:hover { background: var(--slate-100); }
+.icon-btn .badge-dot { position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--red-600); border: 2px solid #fff; }
+.hdr .avatar { width: 36px; height: 36px; background: var(--blue-600); color: #fff; }
+
+/* ---------- Toast (3 variants, as in app) ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 120; transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+  display: flex; align-items: center; gap: 10px; max-width: calc(100% - 32px); width: max-content;
+  padding: 12px 16px; border-radius: var(--r-12); font-size: 14px; font-weight: 600; box-shadow: var(--shadow-float);
+  transition: opacity .2s, transform .2s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast.success { background: var(--green-700); color: #fff; }
+.toast.warn { background: var(--amber-100); color: var(--amber-800); border: 1px solid #FDE68A; }
+.toast.error { background: var(--red-100); color: var(--red-700); border: 1px solid #FECACA; }
+.toast.info { background: var(--slate-900); color: #fff; }
+
+/* ---------- Sheet / modal (bottom sheet on mobile) ---------- */
+.sheet-bg { position: fixed; inset: 0; z-index: 100; background: rgba(15, 23, 42, .45); display: none; align-items: center; justify-content: center; padding: 16px; }
+.sheet-bg.open { display: flex; }
+.sheet { width: 100%; max-width: 440px; background: #fff; border-radius: var(--r-20); padding: 28px 24px 24px; text-align: center; box-shadow: var(--shadow-float); animation: sheetIn .22s ease; max-height: calc(100vh - 32px); overflow: auto; }
+.sheet.left { text-align: left; }
+.sheet .warn-ic { width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 16px; display: grid; place-items: center; background: var(--red-50); color: var(--red-600); }
+.sheet h2 { font-size: 20px; font-weight: 700; }
+.sheet p.body { font-size: 14px; color: var(--slate-600); margin-top: 8px; }
+.sheet .note { margin-top: 16px; padding: 12px 14px; border-radius: var(--r-12); background: var(--red-50); color: var(--red-700); font-size: 13px; font-weight: 600; border: 1px solid var(--red-100); }
+.sheet .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+@keyframes sheetIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 600px) {
+  .sheet-bg { align-items: flex-end; padding: 0; }
+  .sheet { max-width: none; border-radius: 24px 24px 0 0; padding-bottom: 32px; }
+  .sheet::before { content: ""; display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--slate-200); margin: -12px auto 20px; }
+}
+
+/* SkillSankul entry (red) */
+.fab { position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 56px; height: 56px; border-radius: 18px; background: var(--red-600); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(220, 38, 38, .35); }
+.fab:hover { background: var(--red-700); }
+
+@media (max-width: 960px) {
+  .hdr-nav, .hdr-search { display: none; }
+}
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .fab { right: 16px; bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+</style>
+<style>
+  /* ===== Default site header + footer (identical to index.html) — shown to logged-out visitors ===== */
+  .lg { --brand-50: #EEF4FB; --brand-200: #D0E1F4; --brand-500: #2A7FDB; --brand-600: #166ACA; --brand-700: #1257A8; --ink-900: #0F172A; --ink-700: #334155; --ink-500: #64748B; --line: #E2E8F0; --line-soft: #EEF2F7; font-family: var(--font); line-height: 1.55; }
+  .lg .container { width: 100%; max-width: 1264px; margin: 0 auto; padding: 0 24px; }
+  .lg.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--line); }
+  .lg.site-header .container { display: flex; align-items: center; gap: 24px; height: 72px; position: relative; }
+  .lg .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: -.01em; color: var(--ink-900); }
+  .lg .logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, var(--brand-500), var(--brand-700)); display: grid; place-items: center; color: #fff; font-size: 18px; font-weight: 800; }
+  .lg .logo span b { color: var(--brand-600); font-weight: 800; }
+  .lg .main-nav { display: flex; gap: 4px; }
+  .lg .main-nav a { height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; font-size: 15px; font-weight: 600; color: var(--ink-700); }
+  .lg .main-nav a:hover { background: var(--line-soft); color: var(--ink-900); }
+  .lg .main-nav a[aria-current="page"] { color: var(--brand-600); background: var(--brand-50); }
+  .lg .header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .lg .icon-btn { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--ink-700); }
+  .lg .icon-btn:hover { background: var(--line-soft); }
+  .lg .lang-select { height: 40px; border: 1px solid var(--line); border-radius: 10px; background: #fff; padding: 0 10px; font-size: 14px; font-weight: 600; color: var(--ink-700); }
+  .lg .menu-toggle { display: none; }
+  .lg .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 12px; font-size: 15px; font-weight: 700; white-space: nowrap; transition: background .15s, color .15s; }
+  .lg .btn-primary { background: var(--brand-600); color: #fff; box-shadow: 0 6px 16px rgba(22,106,202,.25); }
+  .lg .btn-primary:hover { background: var(--brand-700); }
+  .lg .btn-ghost { color: var(--brand-600); padding: 0 12px; background: none; }
+  .lg .btn-ghost:hover { background: var(--brand-50); }
+  .lg .btn-sm { height: 36px; padding: 0 14px; font-size: 14px; border-radius: 10px; }
+
+  .lg.site-footer { background: #0F172A; color: #CBD5E1; padding: 64px 0 32px; font-size: 15px; }
+  .lg .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
+  .lg.site-footer h4 { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+  .lg.site-footer li { margin-bottom: 10px; font-size: 14px; }
+  .lg.site-footer a:hover { color: #fff; }
+  .lg.site-footer .logo { color: #fff; }
+  .lg .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1E293B; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #94A3B8; }
+  .lg .store-btn { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px; border-radius: 12px; border: 1px solid #334155; color: #fff; font-size: 13px; line-height: 1.2; }
+  .lg .store-btn:hover { border-color: #64748B; }
+  .lg .store-btn b { display: block; font-size: 15px; }
+
+  /* signed-in variant (identical to home.html header) */
+  .lg .header-search { flex: 1; max-width: 420px; position: relative; }
+  .lg .header-search input { width: 100%; height: 44px; border-radius: 12px; border: 1px solid var(--line); background: #F6F8FC; padding: 0 16px 0 44px; font-size: 14px; }
+  .lg .header-search input:focus { outline: none; border-color: var(--brand-500); background: #fff; box-shadow: 0 0 0 4px var(--brand-50); }
+  .lg .header-search .icon { position: absolute; left: 14px; top: 12px; color: #94A3B8; }
+  .lg .icon-btn { position: relative; }
+  .lg .icon-btn .dot { position: absolute; top: 10px; right: 11px; width: 8px; height: 8px; border-radius: 50%; background: #E5383B; border: 2px solid #fff; }
+  .lg .avatar { width: 40px; height: 40px; border-radius: 50%; flex: none; background: linear-gradient(135deg, var(--brand-500), var(--brand-700)); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 14px; }
+
+  @media (max-width: 1080px) {
+    .lg .header-search { display: none; }
+    .lg .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .lg .footer-grid > :first-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 860px) {
+    .lg .main-nav { display: none; }
+    .lg .main-nav.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: #fff; padding: 12px 16px 20px; border-bottom: 1px solid var(--line); box-shadow: 0 6px 20px rgba(15,23,42,.08); }
+    .lg .main-nav.open a { height: 48px; }
+    .lg .menu-toggle { display: grid; }
+    .lg .lang-select { display: none; }
+  }
+  @media (max-width: 600px) {
+    .lg .container { padding: 0 16px; }
+    .lg .footer-grid { grid-template-columns: 1fr 1fr; }
+    .lg.site-header .container { gap: 12px; }
+    .lg .header-actions .btn-ghost { padding: 0 8px; }
+    .lg .header-actions .btn-primary { display: none; }
+    .lg .header-actions .hide-sm { display: none; }
+  }
+</style>
+<style>
+  body.role-visitor [data-role]:not([data-role~="visitor"]),
+  body.role-member  [data-role]:not([data-role~="member"]),
+  body.role-student [data-role]:not([data-role~="student"]) { display: none !important; }
+  body { background: #fff; }
+
+  /* ================= HERO ================= */
+  .v-hero { background: linear-gradient(180deg, #F3F8FE 0%, #EAF2FC 100%); border-bottom: 1px solid var(--blue-100); overflow: hidden; }
+  .v-hero .container { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 48px; align-items: center; padding-top: 36px; padding-bottom: 0; }
+  .v-hero-txt { padding-bottom: 44px; }
+  .kicker { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-radius: var(--pill); background: #fff; border: 1px solid var(--blue-100); color: var(--blue-700); font-size: 12px; font-weight: 700; }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red-600); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .35; } }
+  .v-hero h1 { font-size: 40px; line-height: 1.15; font-weight: 700; letter-spacing: -.02em; margin-top: 14px; }
+  .byline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin-top: 14px; font-size: 14px; color: var(--slate-600); }
+  .byline .r { display: inline-flex; align-items: center; gap: 4px; color: var(--slate-900); font-weight: 700; }
+  .byline .r .star { width: 16px; height: 16px; fill: var(--amber-500); stroke: none; }
+  .byline .r small { font-weight: 500; color: var(--slate-500); font-size: 14px; }
+  .by-inst { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 4px; border-radius: var(--pill); background: #fff; border: 1px solid var(--slate-200); font-weight: 600; color: var(--slate-900); }
+  .by-inst .av { width: 24px; height: 24px; border-radius: 50%; background: var(--green-600); color: #fff; display: grid; place-items: center; font-size: 10px; font-weight: 700; }
+  .by-inst .tick { width: 16px; height: 16px; }
+  .leads { margin-top: 22px; display: grid; gap: 8px; }
+  .leads div { font-size: 15px; color: var(--slate-600); }
+  .leads b { color: var(--slate-900); font-weight: 700; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; align-items: center; }
+  .hero-cta .note { font-size: 13px; color: var(--slate-500); display: inline-flex; align-items: center; gap: 6px; }
+  .hero-cta .note .icon { width: 16px; height: 16px; color: var(--green-600); }
+
+  /* Faculty portraits (placeholders until real photos) */
+  .portraits { position: relative; height: 330px; align-self: end; }
+  .pt { position: absolute; bottom: 0; width: 210px; height: 280px; border-radius: 120px 120px 0 0; overflow: hidden; display: grid; place-items: center; color: rgba(255,255,255,.9); font-size: 56px; font-weight: 700; letter-spacing: -.02em; }
+  .pt::after { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 50% at 50% 30%, rgba(255,255,255,.28), transparent 70%); }
+  .pt.a { left: 10px; background: linear-gradient(160deg, #3E8BE8, #0F4A8F); height: 300px; }
+  .pt.b { right: 10px; background: linear-gradient(160deg, #2BB673, #0B5E2B); }
+  .pt .nm { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 1; white-space: nowrap; height: 30px; padding: 0 12px; border-radius: var(--pill); background: #fff; color: var(--slate-900); font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; box-shadow: 0 4px 12px rgba(15,23,42,.12); }
+
+  /* ================= BODY ================= */
+  .v-body { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 72px; align-items: start; padding-top: 48px; padding-bottom: 96px; }
+  .v-main { max-width: 720px; min-width: 0; }
+  .sec { padding-top: 56px; scroll-margin-top: calc(var(--header-h) + 16px); }
+  .sec:first-child { padding-top: 0; }
+  .sec > h2 { font-size: 26px; line-height: 1.25; font-weight: 700; letter-spacing: -.015em; margin-bottom: 8px; }
+  .sec > .sub { font-size: 15px; color: var(--slate-600); margin-bottom: 20px; }
+  .sec > h2 + :not(.sub) { margin-top: 16px; }
+
+  /* Intro */
+  .intro h2 { font-size: 24px; }
+  .intro p { font-size: 16px; line-height: 1.7; color: var(--slate-700, #334155); margin-top: 14px; }
+  .intro p b { color: var(--slate-900); }
+  .ticks { display: grid; gap: 10px; margin-top: 14px; }
+  .ticks li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.55; color: var(--slate-800); }
+  .ticks .icon { flex: none; width: 20px; height: 20px; color: var(--green-600); margin-top: 1px; }
+  .callout { display: flex; gap: 12px; align-items: flex-start; margin-top: 20px; padding: 14px 16px; border-radius: var(--r-12); background: var(--amber-50); border: 1px solid var(--amber-100); font-size: 14px; color: var(--slate-800); }
+  .callout .icon { color: var(--amber-500); flex: none; margin-top: 1px; }
+
+  /* What you'll learn */
+  .learn { border: 1px solid var(--slate-200); border-radius: var(--r-16); overflow: hidden; }
+  .mod { padding: 20px 24px; }
+  .mod + .mod { border-top: 1px solid var(--slate-100); }
+  .mod h3 { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 700; }
+  .mod h3 .n { width: 28px; height: 28px; border-radius: 8px; background: var(--blue-50); color: var(--blue-600); display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
+  .mod p { font-size: 14px; color: var(--slate-600); margin: 6px 0 0 40px; }
+  .mod ul { margin: 10px 0 0 40px; display: grid; gap: 6px; }
+  .mod li { position: relative; padding-left: 16px; font-size: 14px; color: var(--slate-800); }
+  .mod li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--slate-400); }
+
+  /* Faculty */
+  .fac { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 24px; padding: 28px 0; }
+  .fac + .fac { border-top: 1px solid var(--slate-100); }
+  .fac .ph { width: 112px; height: 112px; border-radius: 20px; display: grid; place-items: center; color: #fff; font-size: 32px; font-weight: 700; }
+  .fac .soc { display: flex; gap: 6px; margin-top: 10px; justify-content: center; }
+  .fac .soc .icon-btn { width: 32px; height: 32px; }
+  .fac h3 { font-size: 20px; font-weight: 700; }
+  .fac .role { font-size: 14px; color: var(--slate-600); margin-top: 2px; }
+  .fac p { font-size: 15px; line-height: 1.65; color: var(--slate-700, #334155); margin-top: 12px; }
+  .fac .creds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .fac .creds span { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: var(--pill); background: var(--bg); border: 1px solid var(--slate-200); font-size: 13px; font-weight: 600; color: var(--slate-700, #334155); }
+  .fac .creds .icon { width: 14px; height: 14px; color: var(--blue-600); }
+  .more-btn { width: 100%; margin-top: 8px; }
+
+  /* Who for */
+  .who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .who > div { padding: 20px; border: 1px solid var(--slate-200); border-radius: var(--r-16); background: #fff; }
+  .who .ic-tile { width: 44px; height: 44px; border-radius: 12px; margin-bottom: 14px; }
+  .who b { display: block; font-size: 15px; font-weight: 700; }
+  .who p { font-size: 14px; color: var(--slate-600); margin-top: 6px; line-height: 1.55; }
+
+  /* Included */
+  .inc { display: grid; gap: 2px; }
+  .inc li { display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; }
+  .inc li + li { border-top: 1px solid var(--slate-100); }
+  .inc .ic-tile { width: 40px; height: 40px; }
+  .inc b { display: block; font-size: 15px; font-weight: 700; }
+  .inc span.s { font-size: 14px; color: var(--slate-600); }
+  .inc li.hl { background: var(--green-50); border-radius: var(--r-12); padding: 12px; border-top: 0; margin-top: 6px; }
+  .inc li.hl .ic-tile { background: #fff; color: var(--green-700); }
+
+  /* Syllabus */
+  .syl-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 14px; color: var(--slate-600); }
+  .phase { border: 1px solid var(--slate-200); border-radius: var(--r-16); overflow: hidden; }
+  .phase + .phase { margin-top: 12px; }
+  .phase > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 20px; }
+  .phase > summary::-webkit-details-marker { display: none; }
+  .phase .when { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--blue-600); }
+  .phase .t { font-size: 16px; font-weight: 700; margin-top: 2px; }
+  .phase .m { font-size: 13px; color: var(--slate-500); margin-top: 2px; }
+  .phase .grow { flex: 1; min-width: 0; }
+  .phase .chev { color: var(--slate-400); transition: transform .2s; }
+  .phase[open] .chev { transform: rotate(180deg); }
+  .phase[open] > summary { border-bottom: 1px solid var(--slate-100); }
+  .les { display: flex; align-items: center; gap: 12px; padding: 12px 20px; font-size: 14px; }
+  .les + .les { border-top: 1px dashed var(--slate-100); }
+  .les .icon { color: var(--slate-400); width: 18px; height: 18px; }
+  .les .grow { flex: 1; min-width: 0; }
+  .les .d { font-size: 13px; color: var(--slate-500); white-space: nowrap; }
+  .les.free { color: var(--blue-600); font-weight: 600; cursor: pointer; }
+  .les.free .icon { color: var(--blue-600); }
+  .les.free:hover { background: var(--blue-50); }
+
+  /* Reviews */
+  .rv-sum { display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-radius: var(--r-16); background: var(--bg); margin-bottom: 16px; flex-wrap: wrap; }
+  .rv-sum .big { font-size: 44px; font-weight: 700; line-height: 1; }
+  .stars { display: flex; gap: 2px; }
+  .stars .icon { width: 16px; height: 16px; fill: var(--amber-500); stroke: none; color: var(--amber-500); }
+  .rv-sum .bars { flex: 1; min-width: 220px; display: grid; gap: 4px; }
+  .rv-sum .bars > div { display: grid; grid-template-columns: 28px 1fr 40px; gap: 10px; align-items: center; font-size: 12px; color: var(--slate-500); }
+  .rv-sum .bars .bar > span { background: var(--amber-500); }
+  .rv { padding: 20px 0; }
+  .rv + .rv { border-top: 1px solid var(--slate-100); }
+  .rv-h { display: flex; align-items: center; gap: 12px; }
+  .rv-h .avatar { width: 40px; height: 40px; font-size: 13px; }
+  .rv-h .grow { flex: 1; min-width: 0; }
+  .rv-h b { font-size: 15px; font-weight: 700; margin-right: 6px; }
+  .rv-h .meta { font-size: 13px; color: var(--slate-500); }
+  .rv-h .rt { text-align: right; }
+  .rv-h .rt .d { font-size: 12px; color: var(--slate-500); margin-top: 2px; }
+  .rv p { font-size: 15px; line-height: 1.65; color: var(--slate-700, #334155); margin-top: 12px; }
+  .rv p.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .rv .link { margin-top: 6px; font-size: 14px; }
+
+  /* Free resources */
+  .res { border: 1px solid var(--slate-200); border-radius: var(--r-16); overflow: hidden; }
+  .res-i { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 24px; align-items: center; padding: 20px 24px; }
+  .res-i + .res-i { border-top: 1px solid var(--slate-100); }
+  .res-i b { display: block; font-size: 16px; font-weight: 700; line-height: 1.4; }
+  .res-i span.s { display: block; font-size: 14px; color: var(--slate-600); margin: 4px 0 14px; }
+  .res-th { aspect-ratio: 16 / 10; border-radius: var(--r-12); position: relative; overflow: hidden; display: grid; place-items: center; color: #fff; }
+  .res-th .icon { width: 36px; height: 36px; opacity: .85; }
+  .res-th .pg { position: absolute; right: 10px; bottom: 10px; padding: 2px 8px; border-radius: 6px; background: rgba(255,255,255,.92); color: var(--slate-900); font-size: 11px; font-weight: 700; }
+
+  /* Schedule */
+  .sch { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; }
+  .sch > div { padding: 20px; border: 1px solid var(--slate-200); border-radius: var(--r-16); }
+  .sch h3 { display: flex; gap: 12px; align-items: center; font-size: 15px; font-weight: 700; }
+  .sch h3 small { display: block; font-size: 13px; font-weight: 500; color: var(--slate-500); }
+  .sch p { font-size: 14px; color: var(--slate-600); margin-top: 10px; line-height: 1.55; }
+  .dates { margin-top: 14px; border-top: 1px solid var(--slate-100); }
+  .dates div { display: grid; grid-template-columns: 88px 1fr; gap: 12px; padding: 10px 0; font-size: 14px; border-bottom: 1px solid var(--slate-100); }
+  .dates div > span:first-child { font-weight: 700; color: var(--blue-600); white-space: nowrap; }
+  .dates small { display: block; font-size: 12px; color: var(--slate-500); }
+
+  /* Results / testimonials */
+  .quotes li { padding: 20px 0; }
+  .quotes li + li { border-top: 1px solid var(--slate-100); }
+  .quotes q { display: block; font-size: 16px; line-height: 1.6; color: var(--slate-800); quotes: "“" "”"; }
+  .quotes .who2 { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 14px; }
+  .quotes .who2 .avatar { width: 36px; height: 36px; font-size: 12px; }
+  .quotes .who2 small { display: block; font-size: 13px; color: var(--slate-500); }
+
+  /* Free lecture video */
+  .vid { position: relative; aspect-ratio: 16 / 9; border-radius: var(--r-16); overflow: hidden; background: radial-gradient(70% 60% at 80% 0%, rgba(22,106,202,.6), transparent 70%), linear-gradient(150deg, #1E3A5F, #0F172A 70%); display: grid; place-items: center; cursor: pointer; }
+  .vid .play { width: 76px; height: 76px; border-radius: 50%; background: #fff; color: var(--blue-600); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .15s; }
+  .vid:hover .play { transform: scale(1.05); }
+  .vid .play .icon { width: 30px; height: 30px; fill: currentColor; margin-left: 4px; }
+  .vid .cap { position: absolute; left: 20px; bottom: 18px; right: 20px; color: #fff; }
+  .vid .cap b { display: block; font-size: 18px; }
+  .vid .cap span { font-size: 13px; opacity: .8; }
+  .vid .dur { position: absolute; right: 16px; top: 16px; padding: 3px 10px; border-radius: 8px; background: rgba(15,23,42,.7); color: #fff; font-size: 12px; font-weight: 700; }
+
+  /* FAQ */
+  .faq details { border-bottom: 1px solid var(--slate-200); }
+  .faq details:first-child { border-top: 1px solid var(--slate-200); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 4px; font-size: 15px; font-weight: 600; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .icon { color: var(--slate-400); transition: transform .2s; flex: none; }
+  .faq details[open] summary .icon { transform: rotate(45deg); color: var(--blue-600); }
+  .faq p { padding: 0 4px 18px; font-size: 15px; line-height: 1.65; color: var(--slate-600); }
+
+  /* ================= SIDE CARD ================= */
+  .side { position: sticky; top: calc(var(--header-h) + 24px); }
+  .enroll { border: 1px solid var(--slate-200); border-radius: var(--r-20); background: #fff; box-shadow: 0 12px 32px rgba(15,23,42,.10); overflow: hidden; }
+  .en-in { padding: 22px; display: grid; gap: 16px; }
+  .en-price { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .en-price b { font-size: 30px; font-weight: 700; letter-spacing: -.01em; }
+  .en-price .rt { margin-left: auto; font-size: 13px; color: var(--slate-600); display: inline-flex; align-items: center; gap: 4px; }
+  .en-price .rt .star { width: 14px; height: 14px; fill: var(--amber-500); stroke: none; }
+  .lbl-s { font-size: 12px; font-weight: 700; color: var(--slate-500); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+  .batches { display: grid; gap: 8px; }
+  .bt { position: relative; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1.5px solid var(--slate-200); border-radius: var(--r-12); cursor: pointer; }
+  .bt input { position: absolute; opacity: 0; }
+  .bt .rd { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--slate-300, #CBD5E1); flex: none; }
+  .bt:has(input:checked) { border-color: var(--blue-600); background: var(--blue-50); }
+  .bt:has(input:checked) .rd { border-color: var(--blue-600); background: var(--blue-600); box-shadow: inset 0 0 0 3px #fff; }
+  .bt input:focus-visible ~ .rd { outline: 3px solid var(--blue-200); outline-offset: 2px; }
+  .bt .grow { flex: 1; min-width: 0; }
+  .bt b { display: block; font-size: 14px; font-weight: 700; }
+  .bt small { font-size: 12px; color: var(--slate-500); }
+  .bt .seats { font-size: 12px; font-weight: 700; color: var(--amber-800); white-space: nowrap; }
+  .bt .seats.full { color: var(--red-600); }
+  .bt.is-full { opacity: .55; cursor: not-allowed; }
+  .en-foot { padding: 16px 22px; background: var(--bg); border-top: 1px solid var(--slate-100); display: grid; gap: 10px; }
+  .en-foot .lbl-s { margin: 0; }
+  .brochure { display: flex; gap: 8px; }
+  .brochure .input { height: 42px; flex: 1; min-width: 0; font-size: 14px; }
+  .brochure .btn { flex: none; width: 42px; height: 42px; padding: 0; }
+  .en-foot small { font-size: 12px; color: var(--slate-500); }
+  .en-list { display: grid; gap: 8px; }
+  .en-list li { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--slate-600); }
+  .en-list .icon { width: 16px; height: 16px; color: var(--slate-400); }
+  .enrolled-h { display: flex; gap: 12px; align-items: center; }
+  .enrolled-h .ic-tile { background: var(--green-100); color: var(--green-700); width: 44px; height: 44px; border-radius: 12px; }
+  .enrolled-h b { display: block; font-size: 16px; }
+  .enrolled-h small { font-size: 13px; color: var(--slate-500); }
+  .kv2 div { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; border-top: 1px solid var(--slate-100); }
+  .kv2 div span { color: var(--slate-500); }
+  .kv2 div b { font-weight: 600; }
+
+  /* Mobile bottom bar */
+  .mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; align-items: center; gap: 12px; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--slate-200); box-shadow: 0 -6px 20px rgba(15,23,42,.06); transform: translateY(110%); transition: transform .2s; }
+  .mbar.show { transform: none; }
+  .mbar .grow { flex: 1; min-width: 0; font-size: 12px; color: var(--slate-500); }
+  .mbar .grow b { display: block; font-size: 18px; color: var(--slate-900); }
+
+  /* ================= FOR INSTITUTES (dark band) ================= */
+  .teams { background: #0B1627; color: #fff; padding: 64px 0; }
+  .teams h2 { font-size: 28px; font-weight: 700; text-align: center; letter-spacing: -.01em; }
+  .teams > .container > p { text-align: center; color: #94A3B8; margin-top: 8px; font-size: 15px; }
+  .teams-g { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
+  .teams-g > div { padding: 22px; border-radius: var(--r-16); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+  .teams-g b { display: block; font-size: 16px; }
+  .teams-g p { font-size: 14px; color: #A9B6C8; margin-top: 6px; line-height: 1.55; }
+  .teams-g a { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 14px; font-weight: 700; color: #9CC7F5; }
+  .teams-g a:hover { color: #fff; }
+  .teams-g .ic-tile { background: rgba(156,199,245,.14); color: #9CC7F5; margin-bottom: 14px; }
+
+  .proto { position: fixed; left: 16px; bottom: 16px; z-index: 110; display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: var(--pill); background: var(--slate-900); color: #fff; font-size: 12px; font-weight: 600; box-shadow: var(--shadow-float); }
+  .proto select { height: 30px; border-radius: var(--pill); border: 0; padding: 0 10px; font-size: 12px; font-weight: 600; background: #fff; color: var(--slate-900); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1100px) {
+    .v-hero .container { grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; }
+    .pt { width: 160px; height: 230px; font-size: 44px; }
+    .pt.a { height: 250px; }
+    .v-body { gap: 40px; grid-template-columns: minmax(0, 1fr) 330px; }
+  }
+  @media (max-width: 960px) {
+    .v-hero .container { grid-template-columns: minmax(0, 1fr); }
+    .portraits { display: none; }
+    .v-body { grid-template-columns: minmax(0, 1fr); padding-top: 28px; }
+    .v-main { max-width: none; }
+    .side { position: static; order: -1; }
+    .mbar { display: flex; }
+    .proto { bottom: 92px; }
+  }
+  @media (max-width: 640px) {
+    .v-hero .container { padding-top: 24px; }
+    .v-hero-txt { padding-bottom: 28px; }
+    .v-hero h1 { font-size: 28px; }
+    .hero-cta .btn { flex: 1; }
+    .sec { padding-top: 44px; }
+    .sec > h2 { font-size: 22px; }
+    .who { grid-template-columns: minmax(0, 1fr); }
+    .sch { grid-template-columns: minmax(0, 1fr); }
+    .fac { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; }
+    .fac .ph { width: 72px; height: 72px; font-size: 22px; border-radius: 16px; }
+    .fac .soc { display: none; }
+    .mod { padding: 18px 16px; }
+    .mod p, .mod ul { margin-left: 0; }
+    .res-i { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .res-th { order: -1; aspect-ratio: 16 / 7; }
+    .teams-g { grid-template-columns: minmax(0, 1fr); }
+    .rv-h .rt .d { display: none; }
+    .proto span { display: none; }
+  }
+  .proto-lay { height: 30px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: #166ACA; color: #fff; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .proto-lay:hover { background: #1257A8; }
+</style>
+</head>
+<body class="role-visitor" data-nav="courses" data-unav="learn">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="lg site-header" data-role="visitor">
+  <div class="container">
+    <button class="icon-btn menu-toggle" data-lg-menu aria-controls="lg-nav" aria-expanded="false" aria-label="Open menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    <a href="index.html" class="logo" aria-label="MySankul home"><span class="logo-mark">S</span><span>My<b>Sankul</b></span></a>
+    <nav class="main-nav" id="lg-nav" aria-label="Primary">
+      <a href="courses.html" data-nav="courses">Courses</a>
+      <a href="index.html#exams" data-nav="exams">Exams</a>
+      <a href="index.html#institutes" data-nav="institutes">Institutes</a>
+      <a href="index.html#live" data-nav="live">Live classes</a>
+      <a href="index.html#tests" data-nav="tests">Test series</a>
+    </nav>
+    <div class="header-actions">
+      <label class="sr-only" for="lg-lang">Language</label>
+      <select id="lg-lang" class="lang-select"><option>English</option><option>ગુજરાતી</option><option>हिंदी</option></select>
+      <a href="signin.html" class="btn btn-ghost" data-signin>Sign in</a>
+      <a href="signin.html" class="btn btn-primary btn-sm" data-signin>Get started</a>
+    </div>
+  </div>
+</header>
+
+<header class="lg site-header" data-role="member student">
+  <div class="container">
+    <button class="icon-btn menu-toggle" data-lg-menu aria-controls="lg-unav" aria-expanded="false" aria-label="Open menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    <a href="home.html" class="logo" aria-label="MySankul home"><span class="logo-mark">S</span><span>My<b>Sankul</b></span></a>
+    <nav class="main-nav" id="lg-unav" aria-label="Primary">
+      <a href="home.html" data-unav="home">Home</a>
+      <a href="home.html#live" data-unav="live">Live Classes</a>
+      <a href="home.html#learn" data-unav="learn">Learn</a>
+      <a href="home.html#tests" data-unav="tests">Tests</a>
+    </nav>
+    <form class="header-search" role="search" onsubmit="event.preventDefault()">
+      <label for="lg-q" class="sr-only">Search</label>
+      <svg class="icon"><use href="#i-search"/></svg>
+      <input id="lg-q" type="search" placeholder="Search courses, exams, institutes">
+    </form>
+    <div class="header-actions">
+      <a href="profile.html#downloads" class="icon-btn hide-sm" aria-label="Downloads"><svg class="icon"><use href="#i-download"/></svg></a>
+      <button class="icon-btn" aria-label="Notifications, 3 unread"><svg class="icon"><use href="#i-bell"/></svg><span class="dot"></span></button>
+      <a href="profile.html" class="avatar" aria-label="Your profile">RP</a>
+    </div>
+  </div>
+</header>
+<script>
+  // Default header: mobile menu + "Sign in" returns the visitor to this page, signed in
+  (function () {
+    if (window.__lgInit) return; window.__lgInit = true;
+    document.querySelectorAll('[data-lg-menu]').forEach(t => {
+      const n = document.getElementById(t.getAttribute('aria-controls'));
+      t.addEventListener('click', () => { const o = t.getAttribute('aria-expanded') !== 'true'; t.setAttribute('aria-expanded', String(o)); n && n.classList.toggle('open', o); });
+    });
+    const un = document.body.dataset.unav; if (un) { const a = document.querySelector(`.lg [data-unav="${un}"]`); a && a.setAttribute('aria-current', 'page'); }
+    const here = location.pathname.split('/').pop() || 'index.html';
+    const next = here + '?as=member' + (location.hash || '');
+    document.querySelectorAll('[data-signin]').forEach(a => a.href = 'signin.html?next=' + encodeURIComponent(next));
+    const cur = document.body.dataset.nav; if (cur) { const a = document.querySelector(`.lg [data-nav="${cur}"]`); a && a.setAttribute('aria-current', 'page'); }
+  })();
+</script>
+
+<!-- ================= HERO ================= -->
+<section class="v-hero">
+  <div class="container">
+    <div class="v-hero-txt">
+      <span class="kicker" data-role="visitor member"><span class="dot"></span>Live batch · starts 5 Oct 2026</span>
+      <span class="kicker" data-role="student" style="color:var(--green-700);border-color:var(--green-100)"><svg class="icon icon-14"><use href="#i-check-circle"/></svg>You're enrolled · Evening batch</span>
+      <h1>GPSC Class 1 &amp; 2: Complete Foundation 2027</h1>
+      <div class="byline">
+        <span class="r"><svg class="icon star"><use href="#i-star"/></svg>4.8 <small>(1,120 ratings)</small></span>
+        <span>Course by</span>
+        <a href="institute.html" class="by-inst"><span class="av">VA</span>Vidhyadeep Academy<svg class="tick"><use href="#i-verified"/></svg></a>
+      </div>
+      <div class="leads">
+        <div><b>Prof. Hitesh Parmar</b> · Polity &amp; History, 14 years teaching GPSC</div>
+        <div><b>Kunal Desai</b> · Gujarati &amp; Essay, former GPSC Class 2 officer</div>
+      </div>
+      <div class="hero-cta">
+        <a href="#enroll" class="btn btn-primary btn-lg" data-role="visitor member">Enroll in the batch</a>
+        <a href="course.html?as=student#content" class="btn btn-primary btn-lg" data-role="student"><svg class="icon"><use href="#i-play"/></svg>Go to my batch</a>
+        <a href="#free-lecture" class="btn btn-outline btn-lg" style="background:#fff"><svg class="icon"><use href="#i-play"/></svg>Watch free lecture</a>
+      </div>
+    </div>
+    <div class="portraits" aria-hidden="true">
+      <div class="pt a">HP<span class="nm">Prof. Hitesh Parmar</span></div>
+      <div class="pt b">KD<span class="nm">Kunal Desai</span></div>
+    </div>
+  </div>
+</section>
+
+<main id="main" class="container v-body">
+  <!-- ================= MAIN COLUMN ================= -->
+  <div class="v-main">
+
+    <!-- Intro -->
+    <section class="sec intro">
+      <h2>One structured 12-month plan for GPSC Prelims and Mains, taught live in Gujarati.</h2>
+      <p>Most aspirants lose months deciding what to study and in which order. This batch gives you a fixed weekly timetable, live classes you can ask questions in, and a test every Sunday so you always know where you stand across Gujarat.</p>
+      <p><b>This batch is a good fit if you want to:</b></p>
+      <ul class="ticks">
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Cover the full Prelims and Mains syllabus once, properly, before revision starts</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Practise answer writing every week and get it checked by faculty</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>See your state rank after every mock instead of guessing</li>
+        <li><svg class="icon"><use href="#i-check-circle"/></svg>Study on your phone, with every class recorded and downloadable</li>
+      </ul>
+      <div class="callout"><svg class="icon"><use href="#i-alert"/></svg><span><b>Evening batch is 82% full.</b> Seats are capped at 120 so every doubt gets answered in class.</span></div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section class="sec" id="learn-s">
+      <h2>What you'll learn</h2>
+      <p class="sub">Six subjects, taught in the order the exam rewards them.</p>
+      <div class="learn">
+        <div class="mod"><h3><span class="n">1</span>Indian Polity &amp; Constitution</h3><ul><li>Preamble, Fundamental Rights, DPSP and Duties with case law</li><li>Parliament, judiciary and Gujarat's state administration</li><li>200+ PYQs solved topic by topic</li></ul></div>
+        <div class="mod"><h3><span class="n">2</span>History of India &amp; Gujarat</h3><ul><li>Ancient to modern India, with the freedom struggle in depth</li><li>Solanki, Sultanate and Maratha periods in Gujarat</li><li>Culture, art and heritage sites asked in GPSC</li></ul></div>
+        <div class="mod"><h3><span class="n">3</span>Geography &amp; Environment</h3><ul><li>Physical and economic geography of India and Gujarat</li><li>Rivers, dams, ports and industrial corridors of the state</li><li>Climate change, biodiversity and environment acts</li></ul></div>
+        <div class="mod"><h3><span class="n">4</span>Economy &amp; Gujarat budget</h3><ul><li>Core concepts from GDP to monetary policy, without jargon</li><li>Union and Gujarat budget, schemes and yojanas</li><li>Monthly current affairs linked to the syllabus</li></ul></div>
+        <div class="mod"><h3><span class="n">5</span>Gujarati language &amp; essay</h3><ul><li>Vyakaran: samas, alankar, chhand and sandhi</li><li>Essay, letter and summary writing with model answers</li><li>Weekly essay evaluated by faculty</li></ul></div>
+        <div class="mod"><h3><span class="n">6</span>CSAT &amp; answer writing</h3><ul><li>Reasoning, maths and comprehension shortcuts</li><li>Mains answer structure: intro, body, diagram, conclusion</li><li>24 full-length mocks with state rank and analysis</li></ul></div>
+      </div>
+    </section>
+
+    <!-- Faculty -->
+    <section class="sec" id="faculty-s">
+      <h2>Learn directly from our faculty</h2>
+      <div class="fac">
+        <div><div class="ph" style="background:linear-gradient(160deg,#3E8BE8,#0F4A8F)">HP</div><div class="soc"><a href="#" class="icon-btn" aria-label="YouTube"><svg class="icon icon-16"><use href="#i-play"/></svg></a><a href="#" class="icon-btn" aria-label="Website"><svg class="icon icon-16"><use href="#i-globe"/></svg></a></div></div>
+        <div>
+          <h3>Prof. Hitesh Parmar</h3>
+          <div class="role">Head of GS, Vidhyadeep Academy · Polity &amp; History</div>
+          <p>Hitesh has taught GPSC aspirants in Ahmedabad for 14 years. His Polity notes are used by more than 20,000 students, and he is known for turning long chapters into one-page maps you can revise the night before the exam.</p>
+          <div class="creds"><span><svg class="icon"><use href="#i-trophy"/></svg>412 selections since 2019</span><span><svg class="icon"><use href="#i-users"/></svg>20k+ students</span><span><svg class="icon"><use href="#i-star"/></svg>4.9 faculty rating</span></div>
+        </div>
+      </div>
+      <div class="fac">
+        <div><div class="ph" style="background:linear-gradient(160deg,#2BB673,#0B5E2B)">KD</div><div class="soc"><a href="#" class="icon-btn" aria-label="YouTube"><svg class="icon icon-16"><use href="#i-play"/></svg></a></div></div>
+        <div>
+          <h3>Kunal Desai</h3>
+          <div class="role">Gujarati &amp; Essay · Former GPSC Class 2 officer</div>
+          <p>Kunal cleared GPSC Class 2 in 2015 and served in the revenue department before moving to teaching. He evaluates every essay in the batch himself and shares the marking scheme officers actually use.</p>
+          <div class="creds"><span><svg class="icon"><use href="#i-award"/></svg>GPSC Class 2, 2015</span><span><svg class="icon"><use href="#i-edit"/></svg>3,000+ essays evaluated</span></div>
+        </div>
+      </div>
+      <div class="fac">
+        <div><div class="ph" style="background:linear-gradient(160deg,#F0752B,#9A3B0B)">AJ</div></div>
+        <div>
+          <h3>Amit Joshi</h3>
+          <div class="role">CSAT, Reasoning &amp; Maths</div>
+          <p>Amit runs the Sunday mock tests and the analysis sessions after them, so you learn which questions to skip as much as which to attempt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who this course is for -->
+    <section class="sec">
+      <h2>Who this course is for</h2>
+      <div class="who">
+        <div><span class="ic-tile"><svg class="icon"><use href="#i-target"/></svg></span><b>First-attempt aspirants</b><p>Graduates starting GPSC who need the full syllabus in a clear order.</p></div>
+        <div><span class="ic-tile"><svg class="icon"><use href="#i-clock"/></svg></span><b>Working professionals</b><p>Evening classes at 7 PM, with recordings for the days you miss.</p></div>
+        <div><span class="ic-tile"><svg class="icon"><use href="#i-trophy"/></svg></span><b>Repeaters</b><p>Cleared Prelims before but missed Mains? Focus on answer writing and mocks.</p></div>
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section class="sec">
+      <h2>What's included</h2>
+      <ul class="inc">
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-radio"/></svg></span><div><b>40 live classes</b><span class="s">Mon–Sat, 7:00–8:30 PM, with live doubt solving in chat</span></div></li>
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-video"/></svg></span><div><b>148 recorded lectures · 32 hours</b><span class="s">Watch any time, at 1× to 2× speed</span></div></li>
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><div><b>24 full-length mock tests</b><span class="s">State rank, accuracy and topic-wise analysis after each test</span></div></li>
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-file-text"/></svg></span><div><b>PDF notes &amp; PYQ bank (2015–2026)</b><span class="s">Bilingual notes for every lecture, solved previous papers</span></div></li>
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-edit"/></svg></span><div><b>Weekly answer-writing evaluation</b><span class="s">One Mains answer and one essay checked by faculty each week</span></div></li>
+        <li><span class="ic-tile"><svg class="icon"><use href="#i-download"/></svg></span><div><b>Offline downloads in the MySankul app</b><span class="s">Study without data on your phone</span></div></li>
+        <li class="hl"><span class="ic-tile"><svg class="icon"><use href="#i-award"/></svg></span><div><b>Completion certificate</b><span class="s">Unlocks when you finish every lecture</span></div></li>
+      </ul>
+    </section>
+
+    <!-- Syllabus -->
+    <section class="sec" id="syllabus">
+      <h2>Course syllabus</h2>
+      <div class="syl-top"><span>4 phases · 148 lectures · 32h</span><button class="link" id="expand-all">Expand all</button></div>
+      <details class="phase" open>
+        <summary><div class="grow"><div class="when">Phase 1 · Oct – Dec 2026</div><div class="t">Foundation: Polity and History</div><div class="m">42 lectures · 12 live classes · 6 tests</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="les free" data-preview="Introduction to GPSC Class 1 &amp; 2"><svg class="icon"><use href="#i-play"/></svg><span class="grow">Introduction to GPSC Class 1 &amp; 2 · Free preview</span><span class="d">18 min</span></div>
+        <div class="les free" data-preview="Preamble and the Constitution"><svg class="icon"><use href="#i-play"/></svg><span class="grow">Preamble and the making of the Constitution · Free preview</span><span class="d">52 min</span></div>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Fundamental Rights, Parts 1–3</span><span class="d">3 lectures</span></div>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Solanki dynasty and medieval Gujarat</span><span class="d">4 lectures</span></div>
+      </details>
+      <details class="phase">
+        <summary><div class="grow"><div class="when">Phase 2 · Jan – Mar 2027</div><div class="t">Geography, Economy and Environment</div><div class="m">38 lectures · 10 live classes · 6 tests</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Rivers, dams and ports of Gujarat</span><span class="d">5 lectures</span></div>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Gujarat budget and state schemes</span><span class="d">4 lectures</span></div>
+      </details>
+      <details class="phase">
+        <summary><div class="grow"><div class="when">Phase 3 · Apr – Jun 2027</div><div class="t">Gujarati, Essay and CSAT</div><div class="m">36 lectures · 10 live classes · 6 tests</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Vyakaran: samas, alankar, sandhi</span><span class="d">6 lectures</span></div>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Reasoning shortcuts for CSAT</span><span class="d">5 lectures</span></div>
+      </details>
+      <details class="phase">
+        <summary><div class="grow"><div class="when">Phase 4 · Jul – Sep 2027</div><div class="t">Revision, Mains writing and full mocks</div><div class="m">32 lectures · 8 live classes · 6 tests</div></div><svg class="icon chev"><use href="#i-chev-down"/></svg></summary>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">Answer-writing masterclass</span><span class="d">4 lectures</span></div>
+        <div class="les"><svg class="icon"><use href="#i-lock"/></svg><span class="grow">12 full-length mock tests with state rank</span><span class="d">12 tests</span></div>
+      </details>
+    </section>
+
+    <!-- Reviews -->
+    <section class="sec" id="reviews">
+      <h2>Student reviews</h2>
+      <div class="rv-sum">
+        <div><div class="big">4.8</div><div class="stars" style="margin-top:6px"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></div><div class="t-13 c-500" style="margin-top:4px">1,120 ratings</div></div>
+        <div class="bars">
+          <div><span>5 ★</span><div class="bar"><span style="width:84%"></span></div><span>84%</span></div>
+          <div><span>4 ★</span><div class="bar"><span style="width:11%"></span></div><span>11%</span></div>
+          <div><span>3 ★</span><div class="bar"><span style="width:3%"></span></div><span>3%</span></div>
+          <div><span>2 ★</span><div class="bar"><span style="width:1%"></span></div><span>1%</span></div>
+          <div><span>1 ★</span><div class="bar"><span style="width:1%"></span></div><span>1%</span></div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-sm" data-role="student" data-toast="Thanks! Your review form opens here" style="margin-bottom:8px"><svg class="icon icon-16"><use href="#i-edit"/></svg>Write a review</button>
+      <div id="rv-list"></div>
+      <button class="btn btn-soft more-btn" id="rv-more">Show more reviews</button>
+    </section>
+
+    <!-- Free resources -->
+    <section class="sec">
+      <h2>Free resources</h2>
+      <p class="sub">Useful even if you don't join the batch.</p>
+      <div class="res">
+        <div class="res-i"><div><b>GPSC Prelims papers 2015–2025 with answers</b><span class="s">11 papers, solved and explained in Gujarati</span><button class="btn btn-primary btn-sm" data-res="GPSC PYQ papers">Download free</button></div><div class="res-th cg-blue" style="background:linear-gradient(135deg,#3E8BE8,#0F4A8F)"><svg class="icon"><use href="#i-file-text"/></svg><span class="pg">PDF · 240 pages</span></div></div>
+        <div class="res-i"><div><b>Complete GPSC syllabus checklist</b><span class="s">Tick off topics as you finish them</span><button class="btn btn-primary btn-sm" data-res="Syllabus checklist">Download free</button></div><div class="res-th" style="background:linear-gradient(135deg,#2BB673,#0B5E2B)"><svg class="icon"><use href="#i-clipboard"/></svg><span class="pg">PDF · 8 pages</span></div></div>
+        <div class="res-i"><div><b>90-day revision plan before Prelims</b><span class="s">Day-by-day plan used by our 2025 toppers</span><button class="btn btn-primary btn-sm" data-res="90-day revision plan">Download free</button></div><div class="res-th" style="background:linear-gradient(135deg,#FFC46B,#9A3B0B)"><svg class="icon"><use href="#i-calendar"/></svg><span class="pg">PDF · 12 pages</span></div></div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="sec" id="schedule">
+      <h2>Schedule</h2>
+      <div class="sch">
+        <div>
+          <h3><span class="ic-tile"><svg class="icon"><use href="#i-radio"/></svg></span><span>Live classes<small>Mon – Sat · 7:00 – 8:30 PM</small></span></h3>
+          <p>Every class is recorded and added to the app within an hour.</p>
+          <div class="dates">
+            <div><span>Mon 5 Oct</span><span>Orientation and study plan<small>Prof. Hitesh Parmar</small></span></div>
+            <div><span>Tue 6 Oct</span><span>Preamble and the Constitution<small>Prof. Hitesh Parmar</small></span></div>
+            <div><span>Wed 7 Oct</span><span>Gujarati vyakaran basics<small>Kunal Desai</small></span></div>
+          </div>
+          <button class="link" style="margin-top:12px" data-cal>Add to calendar</button>
+        </div>
+        <div>
+          <h3><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><span>Sunday tests<small>Every Sunday · 10:00 AM</small></span></h3>
+          <p>A 100-question test on the week's topics, with state rank by 6 PM and a live analysis session on Monday.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="sec">
+      <h2>From our selected students</h2>
+      <ul class="quotes">
+        <li><q>The Sunday tests were the most useful part. By the fourth month I knew exactly which topics cost me marks.</q><div class="who2"><span class="avatar">PS</span><div><b>Priya Shah</b><small>GPSC Class 2, 2025 · Rank 38</small></div></div></li>
+        <li><q>Kunal sir checked every essay I wrote. My Gujarati paper went from my weakest to my best.</q><div class="who2"><span class="avatar" style="background:var(--green-100);color:var(--green-700)">RM</span><div><b>Rohan Mehta</b><small>GPSC Class 1, 2025 · Deputy Collector</small></div></div></li>
+        <li><q>I work in a bank, so the 7 PM batch and downloads made it possible to prepare without quitting.</q><div class="who2"><span class="avatar" style="background:var(--amber-100);color:var(--amber-800)">NP</span><div><b>Nirali Patel</b><small>Cleared Prelims 2025</small></div></div></li>
+      </ul>
+    </section>
+
+    <!-- Free lecture -->
+    <section class="sec" id="free-lecture">
+      <h2>Watch a free lecture before you decide</h2>
+      <p class="sub">The first class of the batch, exactly as students see it.</p>
+      <div class="vid" role="button" tabindex="0" aria-label="Play free lecture" data-preview="Introduction to GPSC Class 1 &amp; 2">
+        <span class="dur">52:10</span>
+        <span class="play"><svg class="icon"><use href="#i-play"/></svg></span>
+        <div class="cap"><b>Preamble and the making of the Constitution</b><span>Prof. Hitesh Parmar · Lecture 2 of 148</span></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec" id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq">
+        <details><summary>Is this valid for the GPSC 2027 exam?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. Your access runs until the GPSC Class 1 &amp; 2 2027 Mains, including every live class, update and new mock test added in that time.</p></details>
+        <details><summary>What if I miss a live class?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Every class is recorded and appears in the app within an hour. You can also ask doubts on the recording and faculty reply within 24 hours.</p></details>
+        <details><summary>Are classes in Gujarati or English?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Classes are taught in Gujarati with English terms. Notes are available in both languages.</p></details>
+        <details><summary>Can I switch between the morning and evening batch?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes, once, within the first 30 days, if seats are available in the other batch.</p></details>
+        <details><summary>Can I pay in instalments?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. At checkout you can split the fee into 3 monthly payments with UPI AutoPay or a credit card. There is no extra charge.</p></details>
+        <details><summary>What is the refund policy?<svg class="icon"><use href="#i-plus"/></svg></summary><p>You get a full refund within 7 days if you have watched less than 10% of the content. Refunds go back to the original payment method.</p></details>
+        <details><summary>Do I get a certificate?<svg class="icon"><use href="#i-plus"/></svg></summary><p>Yes. A completion certificate unlocks when you finish every lecture in the batch.</p></details>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= SIDE: ENROLL CARD ================= -->
+  <aside class="side" id="enroll" aria-label="Enrollment">
+    <div class="enroll" data-role="visitor member">
+      <div class="en-in">
+        <div class="en-price"><b>₹2,399</b><span class="strike">₹3,999</span><span class="chip-s s-green">40% off</span><span class="rt"><svg class="icon star"><use href="#i-star"/></svg>4.8</span></div>
+        <div>
+          <div class="lbl-s">Choose a batch</div>
+          <div class="batches" role="radiogroup" aria-label="Batch">
+            <label class="bt"><input type="radio" name="batch" value="Evening batch" checked><span class="rd"></span><span class="grow"><b>Evening · 7:00 PM</b><small>Starts Mon, 5 Oct 2026</small></span><span class="seats">22 seats left</span></label>
+            <label class="bt"><input type="radio" name="batch" value="Morning batch"><span class="rd"></span><span class="grow"><b>Morning · 7:00 AM</b><small>Starts Mon, 12 Oct 2026</small></span><span class="seats">41 seats left</span></label>
+            <label class="bt is-full"><input type="radio" name="batch" value="Weekend batch" disabled><span class="rd"></span><span class="grow"><b>Weekend · Sat–Sun</b><small>Started 14 Sep 2026</small></span><span class="seats full">Full</span></label>
+          </div>
+        </div>
+        <a href="signin.html?next=course-v1.html%3Fas%3Dmember%23enroll" class="btn btn-primary btn-lg btn-block" data-role="visitor">Enroll now</a>
+        <button class="btn btn-primary btn-lg btn-block" data-role="member" data-open="sh-pay">Enroll now</button>
+        <ul class="en-list">
+          <li><svg class="icon"><use href="#i-calendar"/></svg>Access till the 2027 Mains exam</li>
+          <li><svg class="icon"><use href="#i-wallet"/></svg>Pay in 3 instalments, no extra cost</li>
+          <li><svg class="icon"><use href="#i-shield"/></svg>7-day refund if under 10% watched</li>
+        </ul>
+      </div>
+      <div class="en-foot">
+        <div class="lbl-s">Not ready yet?</div>
+        <form class="brochure" id="brochure" novalidate>
+          <label for="b-phone" class="sr-only">Mobile number</label>
+          <input class="input" id="b-phone" type="tel" inputmode="numeric" maxlength="10" placeholder="Mobile number for the brochure">
+          <button class="btn btn-primary" aria-label="Send brochure"><svg class="icon"><use href="#i-arrow-right"/></svg></button>
+        </form>
+        <small id="b-help">We'll WhatsApp the syllabus PDF and batch timetable. No spam.</small>
+      </div>
+    </div>
+
+    <div class="enroll" data-role="student">
+      <div class="en-in">
+        <div class="enrolled-h"><span class="ic-tile"><svg class="icon"><use href="#i-check-circle"/></svg></span><div><b>You're enrolled</b><small>Paid ₹2,399 on 21 Sep 2026</small></div></div>
+        <div class="kv2">
+          <div><span>Batch</span><b>Evening · 7:00 PM</b></div>
+          <div><span>First class</span><b>Mon, 5 Oct 2026</b></div>
+          <div><span>Access till</span><b>2027 Mains exam</b></div>
+        </div>
+        <a href="course.html?as=student#content" class="btn btn-primary btn-lg btn-block">Go to my batch</a>
+        <button class="btn btn-outline btn-block" data-cal><svg class="icon icon-16"><use href="#i-calendar"/></svg>Add classes to calendar</button>
+        <a href="profile.html#orders" class="link" style="justify-content:center">View invoice</a>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<!-- ================= FOR INSTITUTES ================= -->
+<section class="teams">
+  <div class="container">
+    <h2>MySankul for institutes</h2>
+    <p>Run your own batches, tests and live classes on MySankul.</p>
+    <div class="teams-g">
+      <div><span class="ic-tile"><svg class="icon"><use href="#i-book"/></svg></span><b>List your courses</b><p>Reach aspirants across Gujarat and sell recorded or live batches with your brand.</p><a href="#">Start listing <svg class="icon icon-16"><use href="#i-arrow-right"/></svg></a></div>
+      <div><span class="ic-tile"><svg class="icon"><use href="#i-radio"/></svg></span><b>Teach live</b><p>Live classes with chat, attendance and automatic recordings in the student app.</p><a href="#">See how it works <svg class="icon icon-16"><use href="#i-arrow-right"/></svg></a></div>
+      <div><span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span><b>Sell test series</b><p>Create mocks with state rank and analysis, and sell them on their own.</p><a href="#">Talk to our team <svg class="icon icon-16"><use href="#i-arrow-right"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="lg site-footer" data-role="visitor">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="logo-mark">S</span><span>MySankul</span></a>
+        <p style="margin-top:14px;font-size:14px;max-width:320px">Gujarat's marketplace for competitive exam prep and school learning, from verified institutes.</p>
+        <div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap"><a href="#" class="store-btn"><span>Get it on<b>Google Play</b></span></a><a href="#" class="store-btn"><span>Download on<b>App Store</b></span></a></div>
+      </div>
+      <div><h4>Competitive exams</h4><ul><li><a href="#">GPSC</a></li><li><a href="#">GSSSB</a></li><li><a href="#">Gujarat Police</a></li><li><a href="#">Talati</a></li><li><a href="#">UPSC</a></li></ul></div>
+      <div><h4>School</h4><ul><li><a href="#">Class 6–8</a></li><li><a href="#">Class 9–10</a></li><li><a href="#">Class 11–12</a></li><li><a href="#">NEET / JEE</a></li></ul></div>
+      <div><h4>MySankul</h4><ul><li><a href="#">About us</a></li><li><a href="#">For institutes</a></li><li><a href="#">Refer & earn</a></li><li><a href="#">Careers</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#">Help centre</a></li><li><a href="#">Refund policy</a></li><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 MySankul. All rights reserved.</span><span>Made in Gujarat · English · ગુજરાતી · हिंदी</span></div>
+  </div>
+</footer>
+<script>
+  // Default header: mobile menu + "Sign in" returns the visitor to this page, signed in
+  (function () {
+    if (window.__lgInit) return; window.__lgInit = true;
+    document.querySelectorAll('[data-lg-menu]').forEach(t => {
+      const n = document.getElementById(t.getAttribute('aria-controls'));
+      t.addEventListener('click', () => { const o = t.getAttribute('aria-expanded') !== 'true'; t.setAttribute('aria-expanded', String(o)); n && n.classList.toggle('open', o); });
+    });
+    const un = document.body.dataset.unav; if (un) { const a = document.querySelector(`.lg [data-unav="${un}"]`); a && a.setAttribute('aria-current', 'page'); }
+    const here = location.pathname.split('/').pop() || 'index.html';
+    const next = here + '?as=member' + (location.hash || '');
+    document.querySelectorAll('[data-signin]').forEach(a => a.href = 'signin.html?next=' + encodeURIComponent(next));
+    const cur = document.body.dataset.nav; if (cur) { const a = document.querySelector(`.lg [data-nav="${cur}"]`); a && a.setAttribute('aria-current', 'page'); }
+  })();
+</script>
+
+<!-- Mobile bottom bar -->
+<div class="mbar" id="mbar" data-role="visitor member">
+  <div class="grow"><b>₹2,399</b><span id="mbar-batch">Evening batch · 22 seats left</span></div>
+  <a href="#enroll" class="btn btn-primary">Enroll now</a>
+</div>
+<div class="mbar" id="mbar-s" data-role="student">
+  <div class="grow"><b>You're enrolled</b>Evening batch · starts 5 Oct</div>
+  <a href="course.html?as=student#content" class="btn btn-primary">Go to batch</a>
+</div>
+
+<!-- Payment sheet (member) -->
+<div class="sheet-bg" id="sh-pay" role="dialog" aria-modal="true" aria-labelledby="pay-t">
+  <div class="sheet">
+    <h2 id="pay-t">Confirm your enrollment</h2>
+    <p class="body">GPSC Class 1 &amp; 2: Complete Foundation 2027</p>
+    <div class="kv2" style="margin-top:16px;text-align:left">
+      <div><span>Batch</span><b id="pay-batch">Evening batch</b></div>
+      <div><span>Course fee</span><b>₹3,999</b></div>
+      <div><span>Discount</span><b style="color:var(--green-700)">– ₹1,600</b></div>
+      <div><span>Total (incl. GST)</span><b style="font-size:18px">₹2,399</b></div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-soft" data-close>Cancel</button>
+      <button class="btn btn-primary" id="pay-btn">Pay ₹2,399</button>
+    </div>
+  </div>
+</div>
+
+<label class="proto"><span>Preview as</span>
+  <select id="proto-as" aria-label="Preview the page as">
+    <option value="visitor">Visitor (logged out)</option>
+    <option value="member">Signed in · not enrolled</option>
+    <option value="student">Enrolled student</option>
+  </select>
+  <a class="proto-lay" href="course.html">← Current layout</a>
+</label>
+
+<script>
+/* MySankul — app design system behaviour (profile / institute / signin) */
+(function () {
+  /* ---------- One icon set: 24 grid, 1.8 stroke, round ---------- */
+  const P = {
+    search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+    bell: '<path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+    back: '<path d="m15 6-6 6 6 6"/>',
+    'arrow-left': '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+    'arrow-right': '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    'arrow-up-right': '<path d="M7 17 17 7M8 7h9v9"/>',
+    chev: '<path d="m9 6 6 6-6 6"/>',
+    'chev-down': '<path d="m6 9 6 6 6-6"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    'check-circle': '<circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="m7.5 12 3 3 6-6" stroke="#fff" stroke-width="2.2"/>',
+    verified: '<path d="M12 2.5 14.4 4l2.8-.2 1 2.6 2.4 1.5-.6 2.8 1.2 2.6-2.1 1.9-.3 2.8-2.8.6-1.7 2.3-2.7-.9-2.7.9-1.7-2.3-2.8-.6-.3-2.8L2.8 13.3 4 10.7l-.6-2.8 2.4-1.5 1-2.6 2.8.2Z" fill="currentColor" stroke="none"/><path d="m8.5 12 2.3 2.3 4.7-4.6" stroke="#fff" stroke-width="2"/>',
+    star: '<path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.8 6.6 19.6l1.1-6L3.2 9.4l6.1-.8Z"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
+    bookmark: '<path d="M6 3h12v18l-6-4-6 4Z"/>',
+    'bookmark-fill': '<path d="M6 3h12v18l-6-4-6 4Z" fill="currentColor"/>',
+    video: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+    'file-text': '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+    book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2Z"/><path d="M4 19V5M8 7h7"/>',
+    clipboard: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11h6M9 15h4"/>',
+    download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+    award: '<circle cx="12" cy="9" r="6"/><path d="m8.5 14 -1.5 7 5-3 5 3-1.5-7"/>',
+    receipt: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2Z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+    wallet: '<path d="M4 7a2 2 0 0 1 2-2h12v4"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 13.5h2"/>',
+    gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M12 8S10.5 3 8 3a2.5 2.5 0 0 0 0 5M12 8s1.5-5 4-5a2.5 2.5 0 0 1 0 5"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    users: '<path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3.5"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.5-3.3M15.5 4.7a3.5 3.5 0 0 1 0 6.6"/>',
+    settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/>',
+    help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/>',
+    shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+    door: '<path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8"/><path d="M10 12h10M17 9l3 3-3 3"/>',
+    logout: '<path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H3"/>',
+    alert: '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/>',
+    'alert-fill': '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" fill="currentColor" stroke="none"/><path d="M12 9v4M12 17h.01" stroke="#fff" stroke-width="2.2"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/>',
+    copy: '<rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/>',
+    chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/>',
+    phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+    folder: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+    ticket: '<path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4Z"/><path d="M14 6v12" stroke-dasharray="2 2"/>',
+    tag: '<path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+    sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    gauge: '<path d="M12 14l4-4"/><path d="M3.5 18a9 9 0 1 1 17 0"/>',
+    play: '<path d="m7 4 13 8-13 8Z"/>',
+    wifi: '<path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0M12 20h.01"/>',
+    'wifi-off': '<path d="m2 2 20 20M8.5 16.1a5 5 0 0 1 7 0M5 12.5a10 10 0 0 1 5.2-2.7M19 12.5a10 10 0 0 0-2.3-1.6M2 8.8a15 15 0 0 1 4.2-2.7M22 8.8A15 15 0 0 0 11 5.1M12 20h.01"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/>',
+    camera: '<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/>',
+    x: '<path d="M18 6 6 18M6 6l12 12"/>',
+    lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    trophy: '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/>',
+    menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    monitor: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+    level: '<path d="M5 20v-6M12 20V9M19 20V4"/>',
+    eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    radio: '<circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"/>',
+    'bell-on': '<path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9" fill="currentColor"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+    'external': '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+    heart: '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/>',
+    'heart-fill': '<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z" fill="currentColor"/>',
+    sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+    grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'
+  };
+  const sprite = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  sprite.setAttribute('aria-hidden', 'true');
+  sprite.style.display = 'none';
+  sprite.innerHTML = Object.entries(P).map(([k, v]) => `<symbol id="i-${k}" viewBox="0 0 24 24">${v}</symbol>`).join('');
+  document.body.prepend(sprite);
+
+  /* ---------- Toast: success | warn | error | info ---------- */
+  let toastEl;
+  const TICON = { success: 'check', warn: 'alert', error: 'wifi-off', info: 'info' };
+  window.msToast = (msg, type = 'success', icon) => {
+    if (!toastEl) {
+      toastEl = document.createElement('div');
+      toastEl.setAttribute('role', 'status');
+      toastEl.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toastEl);
+    }
+    toastEl.className = 'toast ' + type;
+    toastEl.innerHTML = `<svg class="icon icon-16"><use href="#i-${icon || TICON[type]}"/></svg><span>${msg}</span>`;
+    requestAnimationFrame(() => toastEl.classList.add('show'));
+    clearTimeout(toastEl._t);
+    toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 2800);
+  };
+
+  /* ---------- Tabs ---------- */
+  document.querySelectorAll('[role="tablist"]').forEach(list => {
+    const tabs = [...list.querySelectorAll('[role="tab"]')];
+    const select = (tab, focus) => {
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        const p = document.getElementById(t.getAttribute('aria-controls'));
+        if (p) p.hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', e => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+      });
+    });
+  });
+
+  /* ---------- Pill groups (single select, optional filtering) ---------- */
+  document.querySelectorAll('[data-pills]').forEach(group => {
+    group.addEventListener('click', e => {
+      const p = e.target.closest('.pill');
+      if (!p) return;
+      group.querySelectorAll('.pill').forEach(x => x.setAttribute('aria-pressed', String(x === p)));
+      const scope = group.dataset.pills;
+      if (!scope) return;
+      const v = p.dataset.value;
+      document.querySelectorAll(`[data-scope="${scope}"] [data-cat]`).forEach(el => {
+        el.hidden = !(v === 'all' || el.dataset.cat.split(' ').includes(v));
+      });
+    });
+  });
+
+  /* ---------- Sheets ---------- */
+  let lastFocus;
+  window.msOpen = id => {
+    const s = document.getElementById(id);
+    if (!s) return;
+    lastFocus = document.activeElement;
+    s.classList.add('open');
+    const f = s.querySelector('[data-autofocus], button, a, input');
+    f && f.focus();
+  };
+  const close = s => { s.classList.remove('open'); lastFocus && lastFocus.focus && lastFocus.focus(); };
+  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); msOpen(b.dataset.open); }));
+  document.querySelectorAll('.sheet-bg').forEach(s => s.addEventListener('click', e => {
+    if (e.target === s || e.target.closest('[data-close]')) close(s);
+  }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.sheet-bg.open').forEach(close); });
+
+  /* ---------- Copy ---------- */
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); } catch (e) { /* file:// may block clipboard */ }
+    msToast(b.dataset.copyMsg || 'Copied');
+  }));
+
+  /* ---------- Bookmark toggles ---------- */
+  document.querySelectorAll('[data-bookmark]').forEach(b => b.addEventListener('click', e => {
+    e.preventDefault(); e.stopPropagation();
+    const on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(on));
+    b.querySelector('use').setAttribute('href', on ? '#i-bookmark-fill' : '#i-bookmark');
+    msToast(on ? 'Saved to bookmarks' : 'Removed from bookmarks', on ? 'success' : 'info');
+  }));
+})();
+
+</script>
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+
+  /* ---------- Role (review only) ---------- */
+  function setRole(r) {
+    document.body.className = 'role-' + r;
+    $('proto-as').value = r;
+    const p = new URLSearchParams(location.search);
+    r === 'visitor' ? p.delete('as') : p.set('as', r);
+    const q = p.toString();
+    history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+  }
+  const start = new URLSearchParams(location.search).get('as');
+  setRole(['member', 'student'].includes(start) ? start : 'visitor');
+  $('proto-as').onchange = e => setRole(e.target.value);
+
+  /* ---------- Batch choice ---------- */
+  document.querySelectorAll('input[name="batch"]').forEach(i => i.addEventListener('change', () => {
+    const lab = i.closest('.bt');
+    $('pay-batch').textContent = i.value;
+    $('mbar-batch').textContent = i.value + ' · ' + lab.querySelector('.seats').textContent;
+  }));
+
+  /* ---------- Payment (member → student) ---------- */
+  $('pay-btn').onclick = () => {
+    $('pay-btn').disabled = true; $('pay-btn').textContent = 'Processing…';
+    setTimeout(() => {
+      document.querySelector('#sh-pay').classList.remove('open');
+      $('pay-btn').disabled = false; $('pay-btn').textContent = 'Pay ₹2,399';
+      setRole('student');
+      scrollTo({ top: 0, behavior: 'smooth' });
+      msToast('Payment successful. Welcome to the batch!');
+    }, 900);
+  };
+
+  /* ---------- Brochure ---------- */
+  $('brochure').onsubmit = e => {
+    e.preventDefault();
+    const v = $('b-phone').value.replace(/\D/g, ''), ok = /^[6-9]\d{9}$/.test(v);
+    $('b-phone').classList.toggle('is-error', !ok);
+    $('b-help').textContent = ok ? 'Sent! Check WhatsApp on +91 ' + v.slice(0, 5) + ' ' + v.slice(5) + '.' : 'Enter a valid 10-digit mobile number.';
+    $('b-help').style.color = ok ? 'var(--green-700)' : 'var(--red-600)';
+    if (ok) msToast('Brochure sent on WhatsApp');
+  };
+
+  /* ---------- Syllabus ---------- */
+  $('expand-all').onclick = () => {
+    const ph = [...document.querySelectorAll('.phase')], open = !ph.every(d => d.open);
+    ph.forEach(d => d.open = open);
+    $('expand-all').textContent = open ? 'Collapse all' : 'Expand all';
+  };
+
+  /* ---------- Previews, resources, misc ---------- */
+  document.querySelectorAll('[data-preview]').forEach(el => {
+    const go = () => msToast('Playing free lecture: ' + el.dataset.preview, 'info');
+    el.addEventListener('click', go);
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+  document.querySelectorAll('[data-res]').forEach(b => b.onclick = () => msToast(b.dataset.res + ' downloaded'));
+  document.querySelectorAll('[data-cal]').forEach(b => b.onclick = () => msToast('Classes added to your calendar'));
+  document.querySelectorAll('[data-toast]').forEach(b => b.onclick = () => msToast(b.dataset.toast, 'info'));
+
+  /* ---------- Reviews ---------- */
+  const R = [
+    ['Dhruv Trivedi', 'DT', 'Cleared GPSC Prelims 2025', 5, '12 Aug 2026', 'The Polity lectures are the clearest I have found in Gujarati. Hitesh sir connects every article to a past question, so you understand why it matters. The Sunday tests are tough but the analysis session on Monday makes the difference. I went from 92 to 131 marks between my first and last mock.'],
+    ['Komal Rathod', 'KR', 'Working professional', 5, '3 Aug 2026', 'I teach in a school during the day. The evening batch and recordings let me keep up, and the downloads work well on the bus. The essay feedback is detailed, with marks for structure and content separately.'],
+    ['Harsh Vaghela', 'HV', 'Second attempt', 4, '21 Jul 2026', 'Very good coverage of Gujarat history and geography. Economy felt a little fast in the first month, but the revision classes in Phase 4 covered it again. Would recommend for anyone serious about Mains.'],
+    ['Mitali Joshi', 'MJ', 'Cleared GPSC Class 2, 2025', 5, '2 Jul 2026', 'The syllabus checklist and 90-day plan kept me honest. Doubts in the live chat were answered during class almost every time.'],
+    ['Aakash Solanki', 'AS', 'First attempt', 5, '18 Jun 2026', 'Structured, calm teaching and no unnecessary motivation talk. Exactly what I needed.'],
+    ['Pooja Dave', 'PD', 'Repeater', 4, '5 Jun 2026', 'Answer writing practice is the highlight. I wish there were more CSAT sessions, but the mocks were accurate to the real paper.']
+  ];
+  const star = '<svg class="icon"><use href="#i-star"/></svg>';
+  let shown = 3;
+  function renderRv() {
+    $('rv-list').innerHTML = R.slice(0, shown).map((r, i) => `<article class="rv">
+      <div class="rv-h"><span class="avatar">${r[1]}</span><div class="grow"><b>${r[0]}</b><span class="chip-s s-green">${r[2]}</span></div><div class="rt"><div class="stars" aria-label="${r[3]} out of 5">${star.repeat(r[3])}</div><div class="d">${r[4]}</div></div></div>
+      <p class="${r[5].length > 220 ? 'clamp' : ''}" id="rv-t${i}">${r[5]}</p>${r[5].length > 220 ? `<button class="link" data-rv="${i}">Read more</button>` : ''}
+    </article>`).join('');
+    $('rv-list').querySelectorAll('[data-rv]').forEach(b => b.onclick = () => { const p = $('rv-t' + b.dataset.rv), c = p.classList.toggle('clamp'); b.textContent = c ? 'Read more' : 'Show less'; });
+    $('rv-more').hidden = shown >= R.length;
+  }
+  $('rv-more').onclick = () => { shown = R.length; renderRv(); };
+  renderRv();
+
+  /* ---------- Mobile bottom bar: show once the enroll card scrolls away ---------- */
+  const card = document.querySelector('.side');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => document.querySelectorAll('.mbar').forEach(m => m.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0)))
+      .observe(card);
+  }
+})();
+</script>
+<script>document.querySelectorAll('.proto-lay').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const as=new URLSearchParams(location.search).get('as');location.href=a.getAttribute('href')+(as&&as!=='visitor'?'?as='+as.replace(/-\d+$/,''):'');}));</script>
+</body>
+</html>

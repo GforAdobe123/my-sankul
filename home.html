@@ -599,7 +599,7 @@ ul { list-style: none; margin: 0; padding: 0; }
       <a href="home.html" data-unav="home">Home</a>
       <a href="home.html#live" data-unav="live">Live Classes</a>
       <a href="home.html#learn" data-unav="learn">Learn</a>
-      <a href="home.html#tests" data-unav="tests">Tests</a>
+      <a href="test-series.html?as=member#my" data-unav="tests">Tests</a>
     </nav>
     <form class="header-search" role="search" onsubmit="event.preventDefault()">
       <label for="lg-q" class="sr-only">Search</label>
@@ -789,19 +789,19 @@ ul { list-style: none; margin: 0; padding: 0; }
 
       <!-- ================= Tests ================= -->
       <section class="sec" id="tests" aria-labelledby="tests-title">
-        <div class="sec-h" data-show="active"><h2 id="tests-title">Your tests</h2><a href="profile.html#tests" class="link">All test series</a></div>
+        <div class="sec-h" data-show="active"><h2 id="tests-title">Your tests</h2><a href="test-series.html?as=member#my" class="link">All test series</a></div>
         <div class="sec-h" data-show="new"><h2>Check where you stand</h2></div>
 
         <div class="card list" data-show="active">
           <div class="row">
             <span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span>
             <div class="grow"><span class="chip-s s-amber">Due by Sunday</span><div class="t">Full Mock Test 15: GS Paper 1</div><div class="m">GPSC Prelims 2026 · 200 questions · 120 min</div></div>
-            <div class="act"><button class="btn btn-primary btn-sm" data-toast="Test opens in the test player">Start test</button></div>
+            <div class="act"><a href="test.html" class="btn btn-primary btn-sm">Start test</a></div>
           </div>
           <div class="row">
             <span class="ic-tile green"><svg class="icon"><use href="#i-trophy"/></svg></span>
             <div class="grow"><span class="chip-s s-green">Result ready</span><div class="t">Sectional Test 8: Series &amp; Coding</div><div class="score">Score <b>41/50</b> · Rank <b>214</b> of 5,880</div></div>
-            <div class="act"><button class="btn btn-outline btn-sm" data-toast="Solutions open here">View solutions</button></div>
+            <div class="act"><a href="test.html#solutions" class="btn btn-outline btn-sm">View solutions</a></div>
           </div>
         </div>
 
@@ -809,7 +809,7 @@ ul { list-style: none; margin: 0; padding: 0; }
           <div class="row">
             <span class="ic-tile"><svg class="icon"><use href="#i-clipboard"/></svg></span>
             <div class="grow"><div class="t">GPSC Prelims free mock test</div><div class="m">50 questions · 60 min · score, accuracy and state rank in minutes</div></div>
-            <div class="act"><button class="btn btn-outline btn-sm" data-toast="Free mock test opens here">Start free test</button></div>
+            <div class="act"><a href="test.html" class="btn btn-outline btn-sm">Start free test</a></div>
           </div>
         </div>
       </section>
